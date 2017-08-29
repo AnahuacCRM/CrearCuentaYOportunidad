@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Settings>
+  <!--Switches-->
+  <CopyAttributes Enabled="true" />
+  <UnionDuplicates Enabled="false" />
+  <Debug Enabled="1" />
+  <Internalize Enabled="false" />
+  <MergeXml Enabled="false" />
+  <!--Signing-->
+  <Sign Enabled="true" Delay="false">C:\BBP\CRM_Anahuac\CRMV1.1\CRM\Main\Source\CrearCuentaOportundiad\06-05-17\Anahuac.CRM.EnvioOportunidad\Anahuac.CRM.EnviaOportunidadABanner\Rhino2016.snk</Sign>
+  <!--Logging-->
+  <Log Enabled="true">C:\BBP\CRM_Anahuac\CRMV1.1\CRM\Main\Source\CrearCuentaOportundiad\06-05-17\Anahuac.CRM.EnvioOportunidad\Anahuac.CRM.EnviaOportunidadABanner\bin\lmerge\log.log</Log>
+  <!--Assemblies-->
+  <Assemblies>
+    <Assembly>C:\BBP\CRM_Anahuac\CRMV1.1\CRM\Main\Source\CrearCuentaOportundiad\06-05-17\Anahuac.CRM.EnvioOportunidad\Anahuac.CRM.EnviaOportunidadABanner\bin\Debug\Anahuac.CRM.EnviaOportunidadABanner.dll</Assembly>
+    <Assembly>C:\BBP\CRM_Anahuac\CRMV1.1\CRM\Main\Source\CrearCuentaOportundiad\06-05-17\Anahuac.CRM.EnvioOportunidad\Anahuac.CRM.EnviaOportunidadABanner\bin\Debug\Newtonsoft.Json.dll</Assembly>
+    <Assembly>C:\BBP\CRM_Anahuac\CRMV1.1\CRM\Main\Source\CrearCuentaOportundiad\06-05-17\Anahuac.CRM.EnvioOportunidad\Anahuac.CRM.EnviaOportunidadABanner\bin\Debug\Rhino.RetrieveBearerToken.dll</Assembly>
+    <Assembly>C:\BBP\CRM_Anahuac\CRMV1.1\CRM\Main\Source\CrearCuentaOportundiad\06-05-17\Anahuac.CRM.EnvioOportunidad\Anahuac.CRM.EnviaOportunidadABanner\bin\Debug\System.Net.Http.Formatting.dll</Assembly>
+    <Primary>C:\BBP\CRM_Anahuac\CRMV1.1\CRM\Main\Source\CrearCuentaOportundiad\06-05-17\Anahuac.CRM.EnvioOportunidad\Anahuac.CRM.EnviaOportunidadABanner\bin\Debug\Anahuac.CRM.EnviaOportunidadABanner.dll</Primary>
+  </Assemblies>
+  <!--Output-->
+  <OutputAssembly>C:\BBP\CRM_Anahuac\CRMV1.1\CRM\Main\Source\CrearCuentaOportundiad\06-05-17\Anahuac.CRM.EnvioOportunidad\Anahuac.CRM.EnviaOportunidadABanner\bin\lmerge\Anahuac.CRM.EnviaOportunidadABanner.dll</OutputAssembly>
+  <!--.NET Framework-->
+  <Framework>.NET Framework 4.6 Full</Framework>
+  <!--Merge Engine-->
+  <Engine Name="ILMerge" />
+</Settings>
