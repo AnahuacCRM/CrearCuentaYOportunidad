@@ -31,6 +31,7 @@ namespace Anahuac.CRM.EnviaOportunidadABanner.DataLayer
             var currenterror = args.ErrorContext.Error.Message;
             args.ErrorContext.Handled = true;
         }
+
         public void CrearOportunidad(AlmacenaIdOportunidad oportundiad)
         {
 
@@ -444,6 +445,105 @@ namespace Anahuac.CRM.EnviaOportunidadABanner.DataLayer
             return ObtenerCodigo(programaId, ua_programas_por_campus_asesor.EntityLogicalName, "ua_programas_por_campus_asesorid", "ua_codigo_del_programa");
         }
 
+        public string ObtenerColegio(Guid ColegioId)
+        {
+
+            return ObtenerCodigo(ColegioId, ua_colegios.EntityLogicalName, "ua_colegiosid", "ua_codigo_colegio");
+        }
+
+        public string CodigoEscuela(string Codeprograma)
+        {
+            Guid idescuela = default(Guid);
+
+            string codigoEscuela = "";
+
+            ua_programaV2 school = new ua_programaV2();
+
+
+            QueryExpression Query = new QueryExpression(ua_programaV2.EntityLogicalName)
+            {
+                NoLock = true,
+                ColumnSet = new ColumnSet(new string[] { "ua_codigo_del_programa", "ua_codigo_escuela", "ua_programa_escuela" }),
+                //ColumnSet = new ColumnSet { AllColumns = true },
+                Criteria = {
+                        Conditions = {
+
+                            new ConditionExpression("ua_codigo_del_programa", ConditionOperator.Equal, Codeprograma),
+
+
+                        }
+                    }
+            };
+            var ec = _cnx.service.RetrieveMultiple(Query);
+            if (ec.Entities.Any())
+            {
+
+                var Contactoprim = ec.Entities.FirstOrDefault();
+
+                if (Contactoprim.Attributes.Contains("ua_programa_escuela"))
+                {
+                    idescuela = ((EntityReference)Contactoprim.Attributes["ua_programa_escuela"]).Id;
+
+
+
+                    var descn = _cnx.service.Retrieve(ua_escuela.EntityLogicalName, idescuela, new ColumnSet(new string[] { "ua_codigo_escuela" }));
+                    if (descn != null)
+                    {
+                        codigoEscuela = descn.Attributes["ua_codigo_escuela"].ToString();
+                    }
+                }
+
+            }
+            return codigoEscuela;
+        }
+
+        public string GetDatosAsesor(Guid pasesor, out string pcorreo )
+        {
+
+
+
+            SystemUser user = new SystemUser();
+
+            pcorreo = "";
+            string name = "", correoAsesor = "";
+
+
+            QueryExpression Query = new QueryExpression(SystemUser.EntityLogicalName)
+            {
+                NoLock = true,
+                ColumnSet = new ColumnSet(new string[] { "fullname", "internalemailaddress" }),
+                //ColumnSet = new ColumnSet { AllColumns = true },
+                Criteria = {
+                        Conditions = {
+
+                            new ConditionExpression("systemuserid", ConditionOperator.Equal, pasesor),
+
+                        }
+                    }
+            };
+            var ec = _cnx.service.RetrieveMultiple(Query);
+            if (ec.Entities.Any())
+            {
+                var Contactoprim = ec.Entities.FirstOrDefault();
+
+
+                if (Contactoprim.Attributes.Contains("fullname"))
+                {
+                    name = Contactoprim.Attributes["fullname"].ToString();
+
+                }
+
+                if (Contactoprim.Attributes.Contains("internalemailaddress"))
+                {
+                    correoAsesor = Contactoprim.Attributes["internalemailaddress"].ToString();
+
+                }
+            }
+
+            pcorreo = correoAsesor;
+            return name;
+
+        }
 
         public Guid ObtenerContactoPrincipalCuenta(Guid pCuenta)
         {

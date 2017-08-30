@@ -15,7 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using XRM;
 using System.ServiceModel;
-
+using System.Globalization;
 
 namespace Anahuac.CRM.EnviaOportunidadABanner
 {
@@ -23,11 +23,11 @@ namespace Anahuac.CRM.EnviaOportunidadABanner
     {
         //private readonly string preImageUpdate = "UpdateImage";
         private readonly string postCreateImageUpdate = "CreateImage";
-       
+
 
         public void Execute(IServiceProvider serviceProvider)
         {
-           
+
             // ConexionSQL ConSQL;
             ServerConnection _cnx;
             _cnx = new ServerConnection(serviceProvider);
@@ -125,13 +125,16 @@ namespace Anahuac.CRM.EnviaOportunidadABanner
 
                 //var StageId = dbRecord.StageId != null ? dbRecord.StageId : currentrecord.StageId;
                 var Origen = dbRecord.ua_origen != null ? dbRecord.ua_origen : currentrecord.ua_origen;
+                //Tomamos la descripcion del origen
+                string OrigenString = dbRecord.ua_origen == null ? "" : dbRecord.FormattedValues["ua_origen"];
+
 
                 //Validar el origen para enviar la oportunidad con el numero de solicitud
                 if (Origen != null)
                 {
                     _cnx.trace.Trace("Origen de Oportunidad: {0}", ((OptionSetValue)Origen).Value);
 
-
+                    //dbRecord.FormattedValues["ua_origen"]
                     //if (Origen.ToString() == "3") // si el origen es 3 (Banner)
                     //{
                     //    _cnx.trace.Trace("Validando Num de solicitud de Oportunidad");
@@ -216,6 +219,11 @@ namespace Anahuac.CRM.EnviaOportunidadABanner
                             var vpdi = dbRecord.ua_codigo_vpd != null ? dbRecord.ua_codigo_vpd : currentrecord.ua_codigo_vpd;
                             vpdi = vpdi.Trim();
 
+                            DateTime? FechaCreacion = dbRecord.CreatedOn != null ? dbRecord.CreatedOn : currentrecord.CreatedOn;
+                            var Asesor = dbRecord.OwnerId != null ? dbRecord.OwnerId : currentrecord.OwnerId;
+                            //var Escuela = dbRecord.ua_colegio_procedencia != null ? dbRecord.ua_colegio_procedencia : currentrecord.ua_colegio_procedencia;
+
+
                             _cnx.trace.Trace("buscame el perdido de esta oportunidad" + currentrecord.OpportunityId.Value.ToString());
 
                             // string PeriodoBusuqeda = u.GetPerdiodoOpo(currentrecord.OpportunityId.Value.ToString());
@@ -243,6 +251,28 @@ namespace Anahuac.CRM.EnviaOportunidadABanner
                                 return;
                             }
 
+
+                            if (FechaCreacion == null)
+                            {
+                                _cnx.trace.Trace("La oportunidad no tiene Fecha de creacion");
+                                _cnx.context.SharedVariables.Add("AbortProcess", "It not Contains Createon");
+                                return;
+                            }
+                            if (Asesor == null)
+                            {
+                                _cnx.trace.Trace("La oportunidad no tiene un asesor asignado");
+                                _cnx.context.SharedVariables.Add("AbortProcess", "It not Contains owner asign");
+                                return;
+                            }
+
+                            //if (Escuela == null)
+                            //{
+                            //    _cnx.trace.Trace("La oportunidad no tiene Colegio procedencia");
+                            //    _cnx.context.SharedVariables.Add("AbortProcess", "It not Contains school");
+                            //    return;
+                            //}
+
+
                             #region Recuperacion de datos del CRM y validacion
                             _cnx.trace.Trace(" recuperando variablesRepository");
                             //VariablesRepository u = new VariablesRepository(_cnx);
@@ -261,8 +291,42 @@ namespace Anahuac.CRM.EnviaOportunidadABanner
                             oportunidad.Id_Oportunidad = idopportunity.Value.ToString();
                             CrearCuentBaner.id_Oportunidad = idopportunity.Value.ToString();
                             oportunidad.Id_Banner = idbaner;
-                           
+
+
                             // CrearCuentBaner.Id_Banner_Vinculante = idbaner;
+                            string scorreo = "";
+                            if (Asesor != null)
+                            {
+                                _cnx.trace.Trace(" Obteniendo Nombre y correo del asesor");
+                                //Servicio 1
+                                CrearCuentBaner.Nombre_Reclutador = u.GetDatosAsesor(Asesor.Id, out scorreo);
+                                CrearCuentBaner.Correo_Reclutador = scorreo;
+                                //Servicio 33
+                                oportunidad.Nombre_Reclutador = CrearCuentBaner.Nombre_Reclutador;
+                                oportunidad.Correo_Reclutador = CrearCuentBaner.Correo_Reclutador;
+                            }
+                            //Se comento porque no es colegio, es escuela. se obtiene del codigo del programa de la entidad programav2 
+                            //if (Escuela != null)
+                            //{
+                            //    _cnx.trace.Trace(" Obteniendo Escuela del prospecto");
+                            //    CrearCuentBaner.Escuela = u.ObtenerColegio(Escuela.Id);
+                            //    oportunidad.Escuela = CrearCuentBaner.Escuela;
+                            //}
+
+                            if (FechaCreacion != null)
+                            {
+                                _cnx.trace.Trace(" Fecha de creacion");
+                                DateTime fecha = (DateTime)FechaCreacion;
+                                var varCultureInfo = new CultureInfo("es-MX");
+                                // var varFechaConversion = fecha.ToString(varCultureInfo);
+                                _cnx.trace.Trace(" convertiendo a cultureinfo la fecha");
+                                CrearCuentBaner.Fecha_Creacion = fecha.ToString(varCultureInfo);
+                                oportunidad.Fecha_Creacion = CrearCuentBaner.Fecha_Creacion;
+
+                            }
+
+                            CrearCuentBaner.Origen = OrigenString;
+                            oportunidad.Origen = OrigenString;
 
 
                             _cnx.trace.Trace("Obteniendo periodo de variables repository");
@@ -276,6 +340,15 @@ namespace Anahuac.CRM.EnviaOportunidadABanner
                             //crearCuenta
                             CrearCuentBaner.Programa = oportunidad.Programa;
                             _cnx.trace.Trace("Programa obtenido " + oportunidad.Programa);
+                            //Codido de la escuela
+                            _cnx.trace.Trace("validando que no sea nulo programa");
+                            if (!string.IsNullOrWhiteSpace(CrearCuentBaner.Programa))
+                            {
+                                _cnx.trace.Trace("Obteniendo codigo escuela");
+                                CrearCuentBaner.Escuela = u.CodigoEscuela(oportunidad.Programa);
+                                oportunidad.Escuela = CrearCuentBaner.Escuela;
+                            }
+
                             //CreateCuenta
                             _cnx.trace.Trace("Obteniendo vpdi de variables repository");
                             CrearCuentBaner.Campus = vpdi;
@@ -306,7 +379,7 @@ namespace Anahuac.CRM.EnviaOportunidadABanner
                             if (!string.IsNullOrWhiteSpace(idbaner))
                             {
                                 oportunidad.Id_Cuenta = idcuent;
-                              
+
                                 try
                                 {
                                     _cnx.trace.Trace("Validando oportunity");
@@ -332,7 +405,7 @@ namespace Anahuac.CRM.EnviaOportunidadABanner
                                 _cnx.trace.Trace("Obteniendo periodo de Sexo y FechaNacimiento de  repository");
                                 DateTime FechaNA = default(DateTime);
                                 CrearCuentBaner.id_Cta = idcuent;
-                               
+
                                 _cnx.trace.Trace("Ontenemos la fehca de nacimiento de esta cuenta " + CrearCuentBaner.id_Cta);
                                 var Sexo = u.ObtenerSexoFechaNacimiento(CrearCuentBaner.id_Cta, out FechaNA);
                                 _cnx.trace.Trace("-----------------------");
@@ -386,7 +459,7 @@ namespace Anahuac.CRM.EnviaOportunidadABanner
                                     _cnx.trace.Trace("Validando oportunity");
                                     CrearCuentBaner.Validate();
                                     string idbanerRespues = u.CrearoCeuntaYoportundiad(CrearCuentBaner, idContactoPrincipalCuenta);
-                                   
+
                                     _cnx.trace.Trace("idbanenr regresado");
 
                                     dbRecord.ua_idbanner = idbanerRespues;
@@ -407,7 +480,7 @@ namespace Anahuac.CRM.EnviaOportunidadABanner
                                     _cnx.service.Update(cuent);
                                     _cnx.trace.Trace("se actualuzo la cuenta");
 
-                                   
+
 
 
                                 }
@@ -449,7 +522,7 @@ namespace Anahuac.CRM.EnviaOportunidadABanner
 
 
                 }//Fin del if null
-               
+
             }
             catch (FaultException<OrganizationServiceFault> ex)
             {

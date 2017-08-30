@@ -35,19 +35,19 @@ namespace Anahuac.CRM.EnviaOportunidadABanner.Cross
 
         public int Numero_Solicitud { get; set; }
 
-        //public string pStatus_solicitud_Admision { get; set; }
+        [Required(ErrorMessage = "El atributo {0} es requerido.")]
+        public string Correo_Reclutador { get; set; }
+
+        [Required(ErrorMessage = "El atributo {0} es requerido.")]
+        public string Nombre_Reclutador { get; set; }
 
         //[Required(ErrorMessage = "El atributo {0} es requerido.")]
-        //public string pNivel { get; set; }
+        public string Escuela { get; set; }
 
-        //[Required(ErrorMessage = "El atributo {0} es requerido.")]
-        //public string pEscuela { get; set; }
-
-        //[Required(ErrorMessage = "El atributo {0} es requerido.")]
-        //public string pTipo_Alumno { get; set; }
-
-        //[Required(ErrorMessage = "El atributo {0} es requerido.")]
-        //public string pTipo_Admision { get; set; }
+        [Required(ErrorMessage = "El atributo {0} es requerido.")]
+        public string Fecha_Creacion { get; set; }
+        
+        public string Origen { get; set; }
 
 
 

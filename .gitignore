@@ -33,6 +33,7 @@ build/
 *_i.c
 *_p.c
 *.ilk
+*.cache
 *.meta
 *.obj
 *.pch

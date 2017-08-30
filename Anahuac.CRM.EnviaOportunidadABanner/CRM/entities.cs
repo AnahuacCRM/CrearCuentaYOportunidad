@@ -5,7 +5,7 @@
 //     Los cambios en este archivo podrían causar un comportamiento incorrecto y se perderán si
 //     se vuelve a generar el código.
 // </auto-generated>
-// Created via this command line: "C:\Users\Gustavo\AppData\Roaming\MscrmTools\XrmToolBox\Plugins\CrmSvcUtil Ref\crmsvcutil.exe" /url:"https://devanahuac.api.crm.dynamics.com/XRMServices/2011/Organization.svc" /namespace:"XRM" /out:"C:\BBP\CRM_Anahuac\CRMV1.1\CRM\Main\Source\CrearCuentaOportundiad\objetos entidades\01-07-17\entities.cs" /servicecontextname:"CrmServiceContext" /codecustomization:"DLaB.CrmSvcUtilExtensions.Entity.CustomizeCodeDomService,DLaB.CrmSvcUtilExtensions" /codegenerationservice:"DLaB.CrmSvcUtilExtensions.Entity.CustomCodeGenerationService,DLaB.CrmSvcUtilExtensions" /codewriterfilter:"DLaB.CrmSvcUtilExtensions.Entity.CodeWriterFilterService,DLaB.CrmSvcUtilExtensions" /namingservice:"DLaB.CrmSvcUtilExtensions.NamingService,DLaB.CrmSvcUtilExtensions" /metadataproviderservice:"DLaB.CrmSvcUtilExtensions.Entity.MetadataProviderService,DLaB.CrmSvcUtilExtensions" /username:"georgina.gomez@anahuac.mx" /password:"**********" 
+// Created via this command line: "C:\Users\Gustavo\AppData\Roaming\MscrmTools\XrmToolBox\Plugins\CrmSvcUtil Ref\crmsvcutil.exe" /url:"https://devanahuac.api.crm.dynamics.com/XRMServices/2011/Organization.svc" /namespace:"XRM" /out:"C:\BBP\ArchivosObjetos\CrearCuentaYOportunidad\Entities.cs" /servicecontextname:"CrmServiceContext" /codecustomization:"DLaB.CrmSvcUtilExtensions.Entity.CustomizeCodeDomService,DLaB.CrmSvcUtilExtensions" /codegenerationservice:"DLaB.CrmSvcUtilExtensions.Entity.CustomCodeGenerationService,DLaB.CrmSvcUtilExtensions" /codewriterfilter:"DLaB.CrmSvcUtilExtensions.Entity.CodeWriterFilterService,DLaB.CrmSvcUtilExtensions" /namingservice:"DLaB.CrmSvcUtilExtensions.NamingService,DLaB.CrmSvcUtilExtensions" /metadataproviderservice:"DLaB.CrmSvcUtilExtensions.Entity.MetadataProviderService,DLaB.CrmSvcUtilExtensions" /username:"georgina.gomez@anahuac.mx" /password:"**********" 
 //------------------------------------------------------------------------------
 
 [assembly: Microsoft.Xrm.Sdk.Client.ProxyTypesAssemblyAttribute()]
@@ -209,11 +209,8 @@ namespace XRM
 			public const string ua_colegio_asesor = "ua_colegio_asesor";
 			public const string ua_colegio_procedencia = "ua_colegio_procedencia";
 			public const string ua_colegioguidstr = "ua_colegioguidstr";
-			public const string ua_delegacion_municipio_asesor = "ua_delegacion_municipio_asesor";
 			public const string ua_desc_nacionalidad = "ua_desc_nacionalidad";
-			public const string ua_edad = "ua_edad";
 			public const string ua_Edadv2 = "ua_edadv2";
-			public const string ua_estado_asesor = "ua_estado_asesor";
 			public const string ua_evento = "ua_evento";
 			public const string ua_fecha_nacimiento = "ua_fecha_nacimiento";
 			public const string ua_grado = "ua_grado";
@@ -221,7 +218,6 @@ namespace XRM
 			public const string ua_medio = "ua_medio";
 			public const string ua_nombre_completo = "ua_nombre_completo";
 			public const string ua_origen = "ua_origen";
-			public const string ua_pais_asesor = "ua_pais_asesor";
 			public const string ua_promedio = "ua_promedio";
 			public const string ua_religion = "ua_religion";
 			public const string ua_sexo = "ua_sexo";
@@ -3163,24 +3159,6 @@ namespace XRM
 		/// <summary>
 		/// 
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ua_delegacion_municipio_asesor")]
-		public Microsoft.Xrm.Sdk.EntityReference ua_delegacion_municipio_asesor
-		{
-			get
-			{
-				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("ua_delegacion_municipio_asesor");
-			}
-			set
-			{
-				this.OnPropertyChanging("ua_delegacion_municipio_asesor");
-				this.SetAttributeValue("ua_delegacion_municipio_asesor", value);
-				this.OnPropertyChanged("ua_delegacion_municipio_asesor");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ua_desc_nacionalidad")]
 		public Microsoft.Xrm.Sdk.EntityReference ua_desc_nacionalidad
 		{
@@ -3199,18 +3177,6 @@ namespace XRM
 		/// <summary>
 		/// 
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ua_edad")]
-		public System.Nullable<int> ua_edad
-		{
-			get
-			{
-				return this.GetAttributeValue<System.Nullable<int>>("ua_edad");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ua_edadv2")]
 		public System.Nullable<int> ua_Edadv2
 		{
@@ -3223,24 +3189,6 @@ namespace XRM
 				this.OnPropertyChanging("ua_Edadv2");
 				this.SetAttributeValue("ua_edadv2", value);
 				this.OnPropertyChanged("ua_Edadv2");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ua_estado_asesor")]
-		public Microsoft.Xrm.Sdk.EntityReference ua_estado_asesor
-		{
-			get
-			{
-				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("ua_estado_asesor");
-			}
-			set
-			{
-				this.OnPropertyChanging("ua_estado_asesor");
-				this.SetAttributeValue("ua_estado_asesor", value);
-				this.OnPropertyChanged("ua_estado_asesor");
 			}
 		}
 		
@@ -3367,24 +3315,6 @@ namespace XRM
 				this.OnPropertyChanging("ua_origen");
 				this.SetAttributeValue("ua_origen", value);
 				this.OnPropertyChanged("ua_origen");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ua_pais_asesor")]
-		public Microsoft.Xrm.Sdk.EntityReference ua_pais_asesor
-		{
-			get
-			{
-				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("ua_pais_asesor");
-			}
-			set
-			{
-				this.OnPropertyChanging("ua_pais_asesor");
-				this.SetAttributeValue("ua_pais_asesor", value);
-				this.OnPropertyChanged("ua_pais_asesor");
 			}
 		}
 		
@@ -5302,13 +5232,11 @@ namespace XRM
 			public const string ua_Fallecio = "ua_fallecio";
 			public const string ua_idbanner = "ua_idbanner";
 			public const string ua_lada_telefono = "ua_lada_telefono";
-			public const string ua_nombrecompleto = "ua_nombrecompleto";
 			public const string ua_nombrecompletoclientepotencialoriginal = "ua_nombrecompletoclientepotencialoriginal";
 			public const string ua_origen = "ua_origen";
 			public const string ua_pais_asesor = "ua_pais_asesor";
 			public const string ua_pais_direccion2 = "ua_pais_direccion2";
 			public const string ua_pais_direccion3 = "ua_pais_direccion3";
-			public const string ua_sexo = "ua_sexo";
 			public const string ua_suborigen = "ua_suborigen";
 			public const string ua_tipo_correo = "ua_tipo_correo";
 			public const string ua_tipo_direccion1 = "ua_tipo_direccion1";
@@ -9148,24 +9076,6 @@ namespace XRM
 		/// <summary>
 		/// 
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ua_nombrecompleto")]
-		public string ua_nombrecompleto
-		{
-			get
-			{
-				return this.GetAttributeValue<string>("ua_nombrecompleto");
-			}
-			set
-			{
-				this.OnPropertyChanging("ua_nombrecompleto");
-				this.SetAttributeValue("ua_nombrecompleto", value);
-				this.OnPropertyChanged("ua_nombrecompleto");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ua_nombrecompletoclientepotencialoriginal")]
 		public string ua_nombrecompletoclientepotencialoriginal
 		{
@@ -9250,24 +9160,6 @@ namespace XRM
 				this.OnPropertyChanging("ua_pais_direccion3");
 				this.SetAttributeValue("ua_pais_direccion3", value);
 				this.OnPropertyChanged("ua_pais_direccion3");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ua_sexo")]
-		public Microsoft.Xrm.Sdk.OptionSetValue ua_sexo
-		{
-			get
-			{
-				return this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("ua_sexo");
-			}
-			set
-			{
-				this.OnPropertyChanging("ua_sexo");
-				this.SetAttributeValue("ua_sexo", value);
-				this.OnPropertyChanged("ua_sexo");
 			}
 		}
 		
@@ -9706,7 +9598,6 @@ namespace XRM
 			public const string ua_carrera_universal2 = "ua_carrera_universal2";
 			public const string ua_carrera_universal3 = "ua_carrera_universal3";
 			public const string ua_ciudad_extranjera = "ua_ciudad_extranjera";
-			public const string ua_ClickCaliicar = "ua_clickcaliicar";
 			public const string ua_codigo_campus = "ua_codigo_campus";
 			public const string ua_codigo_carrera_web = "ua_codigo_carrera_web";
 			public const string ua_codigo_del_programa = "ua_codigo_del_programa";
@@ -9721,7 +9612,6 @@ namespace XRM
 			public const string ua_colegioGUIDStr = "ua_colegioguidstr";
 			public const string ua_correo_electronico_flujo = "ua_correo_electronico_flujo";
 			public const string ua_delegacion_municipio_asesor = "ua_delegacion_municipio_asesor";
-			public const string ua_edad = "ua_edad";
 			public const string ua_Edadv2 = "ua_edadv2";
 			public const string ua_estado_asesor = "ua_estado_asesor";
 			public const string ua_estatus_contactado = "ua_estatus_contactado";
@@ -9733,7 +9623,6 @@ namespace XRM
 			public const string ua_ID_banner = "ua_id_banner";
 			public const string ua_lada_telefono = "ua_lada_telefono";
 			public const string ua_medio = "ua_medio";
-			public const string ua_mess = "ua_mess";
 			public const string ua_nombre_flujo = "ua_nombre_flujo";
 			public const string ua_origen = "ua_origen";
 			public const string ua_Otro_Estado = "ua_otro_estado";
@@ -9747,7 +9636,6 @@ namespace XRM
 			public const string ua_programas_por_campus_asesor = "ua_programas_por_campus_asesor";
 			public const string ua_programav2 = "ua_programav2";
 			public const string ua_promedio = "ua_promedio";
-			public const string ua_Promediocondecimal = "ua_promediocondecimal";
 			public const string ua_religion = "ua_religion";
 			public const string ua_Segundonombreflujo = "ua_segundonombreflujo";
 			public const string ua_sexo = "ua_sexo";
@@ -12381,24 +12269,6 @@ namespace XRM
 		/// <summary>
 		/// 
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ua_clickcaliicar")]
-		public System.Nullable<bool> ua_ClickCaliicar
-		{
-			get
-			{
-				return this.GetAttributeValue<System.Nullable<bool>>("ua_clickcaliicar");
-			}
-			set
-			{
-				this.OnPropertyChanging("ua_ClickCaliicar");
-				this.SetAttributeValue("ua_clickcaliicar", value);
-				this.OnPropertyChanged("ua_ClickCaliicar");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ua_codigo_campus")]
 		public Microsoft.Xrm.Sdk.EntityReference ua_codigo_campus
 		{
@@ -12645,18 +12515,6 @@ namespace XRM
 		/// <summary>
 		/// 
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ua_edad")]
-		public System.Nullable<int> ua_edad
-		{
-			get
-			{
-				return this.GetAttributeValue<System.Nullable<int>>("ua_edad");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ua_edadv2")]
 		public System.Nullable<int> ua_Edadv2
 		{
@@ -12849,18 +12707,6 @@ namespace XRM
 				this.OnPropertyChanging("ua_medio");
 				this.SetAttributeValue("ua_medio", value);
 				this.OnPropertyChanged("ua_medio");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ua_mess")]
-		public string ua_mess
-		{
-			get
-			{
-				return this.GetAttributeValue<string>("ua_mess");
 			}
 		}
 		
@@ -13095,24 +12941,6 @@ namespace XRM
 				this.OnPropertyChanging("ua_promedio");
 				this.SetAttributeValue("ua_promedio", value);
 				this.OnPropertyChanged("ua_promedio");
-			}
-		}
-		
-		/// <summary>
-		/// 
-		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ua_promediocondecimal")]
-		public System.Nullable<decimal> ua_Promediocondecimal
-		{
-			get
-			{
-				return this.GetAttributeValue<System.Nullable<decimal>>("ua_promediocondecimal");
-			}
-			set
-			{
-				this.OnPropertyChanging("ua_Promediocondecimal");
-				this.SetAttributeValue("ua_promediocondecimal", value);
-				this.OnPropertyChanged("ua_Promediocondecimal");
 			}
 		}
 		
@@ -13617,6 +13445,7 @@ namespace XRM
 			public const string TotalTax_Base = "totaltax_base";
 			public const string TransactionCurrencyId = "transactioncurrencyid";
 			public const string TraversedPath = "traversedpath";
+			public const string ua_Asesoropoperd = "ua_asesoropoperd";
 			public const string ua_campus_destino = "ua_campus_destino";
 			public const string ua_campus_origen = "ua_campus_origen";
 			public const string ua_capturo = "ua_capturo";
@@ -13640,7 +13469,7 @@ namespace XRM
 			public const string ua_desc_tipo_desicion = "ua_desc_tipo_desicion";
 			public const string ua_estado_asesor = "ua_estado_asesor";
 			public const string ua_estatus_alumno = "ua_estatus_alumno";
-			public const string ua_estatus_contactado = "ua_estatus_contactado";
+			public const string ua_estatus_de_contactado = "ua_estatus_de_contactado";
 			public const string ua_estatus_solicitud = "ua_estatus_solicitud";
 			public const string ua_fases_proceso = "ua_fases_proceso";
 			public const string ua_fecha_eov = "ua_fecha_eov";
@@ -15528,6 +15357,24 @@ namespace XRM
 		/// <summary>
 		/// 
 		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ua_asesoropoperd")]
+		public Microsoft.Xrm.Sdk.EntityReference ua_Asesoropoperd
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("ua_asesoropoperd");
+			}
+			set
+			{
+				this.OnPropertyChanging("ua_Asesoropoperd");
+				this.SetAttributeValue("ua_asesoropoperd", value);
+				this.OnPropertyChanged("ua_Asesoropoperd");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ua_campus_destino")]
 		public Microsoft.Xrm.Sdk.EntityReference ua_campus_destino
 		{
@@ -15936,18 +15783,18 @@ namespace XRM
 		/// <summary>
 		/// 
 		/// </summary>
-		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ua_estatus_contactado")]
-		public Microsoft.Xrm.Sdk.EntityReference ua_estatus_contactado
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ua_estatus_de_contactado")]
+		public Microsoft.Xrm.Sdk.EntityReference ua_estatus_de_contactado
 		{
 			get
 			{
-				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("ua_estatus_contactado");
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("ua_estatus_de_contactado");
 			}
 			set
 			{
-				this.OnPropertyChanging("ua_estatus_contactado");
-				this.SetAttributeValue("ua_estatus_contactado", value);
-				this.OnPropertyChanged("ua_estatus_contactado");
+				this.OnPropertyChanging("ua_estatus_de_contactado");
+				this.SetAttributeValue("ua_estatus_de_contactado", value);
+				this.OnPropertyChanged("ua_estatus_de_contactado");
 			}
 		}
 		
@@ -17281,6 +17128,2929 @@ namespace XRM
 		
 		/// <summary>
 		/// Número de versión de la actividad de cierre de oportunidad.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("versionnumber")]
+		public System.Nullable<long> VersionNumber
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<long>>("versionnumber");
+			}
+		}
+	}
+	
+	/// <summary>
+	/// Persona con acceso al sistema de Microsoft CRM y propietaria de objetos de la base de datos de Microsoft CRM.
+	/// </summary>
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("systemuser")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "8.2.1.8676")]
+	public partial class SystemUser : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	{
+		
+		public static class Fields
+		{
+			public const string AccessMode = "accessmode";
+			public const string Address1_AddressId = "address1_addressid";
+			public const string Address1_AddressTypeCode = "address1_addresstypecode";
+			public const string Address1_City = "address1_city";
+			public const string Address1_Composite = "address1_composite";
+			public const string Address1_Country = "address1_country";
+			public const string Address1_County = "address1_county";
+			public const string Address1_Fax = "address1_fax";
+			public const string Address1_Latitude = "address1_latitude";
+			public const string Address1_Line1 = "address1_line1";
+			public const string Address1_Line2 = "address1_line2";
+			public const string Address1_Line3 = "address1_line3";
+			public const string Address1_Longitude = "address1_longitude";
+			public const string Address1_Name = "address1_name";
+			public const string Address1_PostalCode = "address1_postalcode";
+			public const string Address1_PostOfficeBox = "address1_postofficebox";
+			public const string Address1_ShippingMethodCode = "address1_shippingmethodcode";
+			public const string Address1_StateOrProvince = "address1_stateorprovince";
+			public const string Address1_Telephone1 = "address1_telephone1";
+			public const string Address1_Telephone2 = "address1_telephone2";
+			public const string Address1_Telephone3 = "address1_telephone3";
+			public const string Address1_UPSZone = "address1_upszone";
+			public const string Address1_UTCOffset = "address1_utcoffset";
+			public const string Address2_AddressId = "address2_addressid";
+			public const string Address2_AddressTypeCode = "address2_addresstypecode";
+			public const string Address2_City = "address2_city";
+			public const string Address2_Composite = "address2_composite";
+			public const string Address2_Country = "address2_country";
+			public const string Address2_County = "address2_county";
+			public const string Address2_Fax = "address2_fax";
+			public const string Address2_Latitude = "address2_latitude";
+			public const string Address2_Line1 = "address2_line1";
+			public const string Address2_Line2 = "address2_line2";
+			public const string Address2_Line3 = "address2_line3";
+			public const string Address2_Longitude = "address2_longitude";
+			public const string Address2_Name = "address2_name";
+			public const string Address2_PostalCode = "address2_postalcode";
+			public const string Address2_PostOfficeBox = "address2_postofficebox";
+			public const string Address2_ShippingMethodCode = "address2_shippingmethodcode";
+			public const string Address2_StateOrProvince = "address2_stateorprovince";
+			public const string Address2_Telephone1 = "address2_telephone1";
+			public const string Address2_Telephone2 = "address2_telephone2";
+			public const string Address2_Telephone3 = "address2_telephone3";
+			public const string Address2_UPSZone = "address2_upszone";
+			public const string Address2_UTCOffset = "address2_utcoffset";
+			public const string ApplicationId = "applicationid";
+			public const string ApplicationIdUri = "applicationiduri";
+			public const string AzureActiveDirectoryObjectId = "azureactivedirectoryobjectid";
+			public const string BusinessUnitId = "businessunitid";
+			public const string CalendarId = "calendarid";
+			public const string CALType = "caltype";
+			public const string CreatedBy = "createdby";
+			public const string CreatedOn = "createdon";
+			public const string CreatedOnBehalfBy = "createdonbehalfby";
+			public const string DefaultFiltersPopulated = "defaultfilterspopulated";
+			public const string DefaultMailbox = "defaultmailbox";
+			public const string DefaultOdbFolderName = "defaultodbfoldername";
+			public const string DisabledReason = "disabledreason";
+			public const string DisplayInServiceViews = "displayinserviceviews";
+			public const string DomainName = "domainname";
+			public const string EmailRouterAccessApproval = "emailrouteraccessapproval";
+			public const string EmployeeId = "employeeid";
+			public const string EntityImage = "entityimage";
+			public const string EntityImage_Timestamp = "entityimage_timestamp";
+			public const string EntityImage_URL = "entityimage_url";
+			public const string EntityImageId = "entityimageid";
+			public const string ExchangeRate = "exchangerate";
+			public const string FirstName = "firstname";
+			public const string FullName = "fullname";
+			public const string GovernmentId = "governmentid";
+			public const string HomePhone = "homephone";
+			public const string ImportSequenceNumber = "importsequencenumber";
+			public const string IncomingEmailDeliveryMethod = "incomingemaildeliverymethod";
+			public const string InternalEMailAddress = "internalemailaddress";
+			public const string InviteStatusCode = "invitestatuscode";
+			public const string IsDisabled = "isdisabled";
+			public const string IsEmailAddressApprovedByO365Admin = "isemailaddressapprovedbyo365admin";
+			public const string IsIntegrationUser = "isintegrationuser";
+			public const string IsLicensed = "islicensed";
+			public const string IsSyncWithDirectory = "issyncwithdirectory";
+			public const string JobTitle = "jobtitle";
+			public const string LastName = "lastname";
+			public const string MiddleName = "middlename";
+			public const string MobileAlertEMail = "mobilealertemail";
+			public const string MobileOfflineProfileId = "mobileofflineprofileid";
+			public const string MobilePhone = "mobilephone";
+			public const string ModifiedBy = "modifiedby";
+			public const string ModifiedOn = "modifiedon";
+			public const string ModifiedOnBehalfBy = "modifiedonbehalfby";
+			public const string NickName = "nickname";
+			public const string OrganizationId = "organizationid";
+			public const string OutgoingEmailDeliveryMethod = "outgoingemaildeliverymethod";
+			public const string OverriddenCreatedOn = "overriddencreatedon";
+			public const string ParentSystemUserId = "parentsystemuserid";
+			public const string PassportHi = "passporthi";
+			public const string PassportLo = "passportlo";
+			public const string PersonalEMailAddress = "personalemailaddress";
+			public const string PhotoUrl = "photourl";
+			public const string PositionId = "positionid";
+			public const string PreferredAddressCode = "preferredaddresscode";
+			public const string PreferredEmailCode = "preferredemailcode";
+			public const string PreferredPhoneCode = "preferredphonecode";
+			public const string ProcessId = "processid";
+			public const string QueueId = "queueid";
+			public const string Salutation = "salutation";
+			public const string SetupUser = "setupuser";
+			public const string SharePointEmailAddress = "sharepointemailaddress";
+			public const string SiteId = "siteid";
+			public const string Skills = "skills";
+			public const string StageId = "stageid";
+			public const string SystemUserId = "systemuserid";
+			public const string Id = "systemuserid";
+			public const string TerritoryId = "territoryid";
+			public const string TimeZoneRuleVersionNumber = "timezoneruleversionnumber";
+			public const string Title = "title";
+			public const string TransactionCurrencyId = "transactioncurrencyid";
+			public const string TraversedPath = "traversedpath";
+			public const string ua_Colegio = "ua_colegio";
+			public const string ua_UsuarioVPDId = "ua_usuariovpdid";
+			public const string UserLicenseType = "userlicensetype";
+			public const string UTCConversionTimeZoneCode = "utcconversiontimezonecode";
+			public const string VersionNumber = "versionnumber";
+			public const string WindowsLiveID = "windowsliveid";
+			public const string YammerEmailAddress = "yammeremailaddress";
+			public const string YammerUserId = "yammeruserid";
+			public const string YomiFirstName = "yomifirstname";
+			public const string YomiFullName = "yomifullname";
+			public const string YomiLastName = "yomilastname";
+			public const string YomiMiddleName = "yomimiddlename";
+		}
+
+		
+		/// <summary>
+		/// Default Constructor.
+		/// </summary>
+		public SystemUser() : 
+				base(EntityLogicalName)
+		{
+		}
+		
+		public const string EntityLogicalName = "systemuser";
+		
+		public const int EntityTypeCode = 8;
+		
+		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+		
+		public event System.ComponentModel.PropertyChangingEventHandler PropertyChanging;
+		
+		private void OnPropertyChanged(string propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void OnPropertyChanging(string propertyName)
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, new System.ComponentModel.PropertyChangingEventArgs(propertyName));
+			}
+		}
+		
+		/// <summary>
+		/// Tipo de usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("accessmode")]
+		public Microsoft.Xrm.Sdk.OptionSetValue AccessMode
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("accessmode");
+			}
+			set
+			{
+				this.OnPropertyChanging("AccessMode");
+				this.SetAttributeValue("accessmode", value);
+				this.OnPropertyChanged("AccessMode");
+			}
+		}
+		
+		/// <summary>
+		/// Identificador único de la dirección 1.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address1_addressid")]
+		public System.Nullable<System.Guid> Address1_AddressId
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.Guid>>("address1_addressid");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address1_AddressId");
+				this.SetAttributeValue("address1_addressid", value);
+				this.OnPropertyChanged("Address1_AddressId");
+			}
+		}
+		
+		/// <summary>
+		/// Tipo de la dirección 1 (por ejemplo, de facturación, de envío o dirección principal).
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address1_addresstypecode")]
+		public Microsoft.Xrm.Sdk.OptionSetValue Address1_AddressTypeCode
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("address1_addresstypecode");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address1_AddressTypeCode");
+				this.SetAttributeValue("address1_addresstypecode", value);
+				this.OnPropertyChanged("Address1_AddressTypeCode");
+			}
+		}
+		
+		/// <summary>
+		/// Ciudad de la dirección 1.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address1_city")]
+		public string Address1_City
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("address1_city");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address1_City");
+				this.SetAttributeValue("address1_city", value);
+				this.OnPropertyChanged("Address1_City");
+			}
+		}
+		
+		/// <summary>
+		/// Muestra la dirección principal completa.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address1_composite")]
+		public string Address1_Composite
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("address1_composite");
+			}
+		}
+		
+		/// <summary>
+		/// País o región de la dirección 1.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address1_country")]
+		public string Address1_Country
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("address1_country");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address1_Country");
+				this.SetAttributeValue("address1_country", value);
+				this.OnPropertyChanged("Address1_Country");
+			}
+		}
+		
+		/// <summary>
+		/// Condado de la dirección 1.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address1_county")]
+		public string Address1_County
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("address1_county");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address1_County");
+				this.SetAttributeValue("address1_county", value);
+				this.OnPropertyChanged("Address1_County");
+			}
+		}
+		
+		/// <summary>
+		/// Número de fax de la dirección 1.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address1_fax")]
+		public string Address1_Fax
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("address1_fax");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address1_Fax");
+				this.SetAttributeValue("address1_fax", value);
+				this.OnPropertyChanged("Address1_Fax");
+			}
+		}
+		
+		/// <summary>
+		/// Latitud de la dirección 1.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address1_latitude")]
+		public System.Nullable<double> Address1_Latitude
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<double>>("address1_latitude");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address1_Latitude");
+				this.SetAttributeValue("address1_latitude", value);
+				this.OnPropertyChanged("Address1_Latitude");
+			}
+		}
+		
+		/// <summary>
+		/// Primera línea para escribir la dirección 1.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address1_line1")]
+		public string Address1_Line1
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("address1_line1");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address1_Line1");
+				this.SetAttributeValue("address1_line1", value);
+				this.OnPropertyChanged("Address1_Line1");
+			}
+		}
+		
+		/// <summary>
+		/// Segunda línea para escribir la dirección 1.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address1_line2")]
+		public string Address1_Line2
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("address1_line2");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address1_Line2");
+				this.SetAttributeValue("address1_line2", value);
+				this.OnPropertyChanged("Address1_Line2");
+			}
+		}
+		
+		/// <summary>
+		/// Tercera línea para escribir la dirección 1.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address1_line3")]
+		public string Address1_Line3
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("address1_line3");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address1_Line3");
+				this.SetAttributeValue("address1_line3", value);
+				this.OnPropertyChanged("Address1_Line3");
+			}
+		}
+		
+		/// <summary>
+		/// Longitud de la dirección 1.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address1_longitude")]
+		public System.Nullable<double> Address1_Longitude
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<double>>("address1_longitude");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address1_Longitude");
+				this.SetAttributeValue("address1_longitude", value);
+				this.OnPropertyChanged("Address1_Longitude");
+			}
+		}
+		
+		/// <summary>
+		/// Nombre para la dirección 1.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address1_name")]
+		public string Address1_Name
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("address1_name");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address1_Name");
+				this.SetAttributeValue("address1_name", value);
+				this.OnPropertyChanged("Address1_Name");
+			}
+		}
+		
+		/// <summary>
+		/// Código postal de la dirección 1.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address1_postalcode")]
+		public string Address1_PostalCode
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("address1_postalcode");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address1_PostalCode");
+				this.SetAttributeValue("address1_postalcode", value);
+				this.OnPropertyChanged("Address1_PostalCode");
+			}
+		}
+		
+		/// <summary>
+		/// Apartado de correos de la dirección 1.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address1_postofficebox")]
+		public string Address1_PostOfficeBox
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("address1_postofficebox");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address1_PostOfficeBox");
+				this.SetAttributeValue("address1_postofficebox", value);
+				this.OnPropertyChanged("Address1_PostOfficeBox");
+			}
+		}
+		
+		/// <summary>
+		/// Modo de envío de la dirección 1.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address1_shippingmethodcode")]
+		public Microsoft.Xrm.Sdk.OptionSetValue Address1_ShippingMethodCode
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("address1_shippingmethodcode");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address1_ShippingMethodCode");
+				this.SetAttributeValue("address1_shippingmethodcode", value);
+				this.OnPropertyChanged("Address1_ShippingMethodCode");
+			}
+		}
+		
+		/// <summary>
+		/// Estado o provincia de la dirección 1.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address1_stateorprovince")]
+		public string Address1_StateOrProvince
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("address1_stateorprovince");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address1_StateOrProvince");
+				this.SetAttributeValue("address1_stateorprovince", value);
+				this.OnPropertyChanged("Address1_StateOrProvince");
+			}
+		}
+		
+		/// <summary>
+		/// Primer nº de teléfono asociado con la dirección 1.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address1_telephone1")]
+		public string Address1_Telephone1
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("address1_telephone1");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address1_Telephone1");
+				this.SetAttributeValue("address1_telephone1", value);
+				this.OnPropertyChanged("Address1_Telephone1");
+			}
+		}
+		
+		/// <summary>
+		/// Segundo nº de teléfono asociado con la dirección 1.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address1_telephone2")]
+		public string Address1_Telephone2
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("address1_telephone2");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address1_Telephone2");
+				this.SetAttributeValue("address1_telephone2", value);
+				this.OnPropertyChanged("Address1_Telephone2");
+			}
+		}
+		
+		/// <summary>
+		/// Tercer nº de teléfono asociado con la dirección 1.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address1_telephone3")]
+		public string Address1_Telephone3
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("address1_telephone3");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address1_Telephone3");
+				this.SetAttributeValue("address1_telephone3", value);
+				this.OnPropertyChanged("Address1_Telephone3");
+			}
+		}
+		
+		/// <summary>
+		/// Zona de UPS (United Parcel Service) de la dirección 1.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address1_upszone")]
+		public string Address1_UPSZone
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("address1_upszone");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address1_UPSZone");
+				this.SetAttributeValue("address1_upszone", value);
+				this.OnPropertyChanged("Address1_UPSZone");
+			}
+		}
+		
+		/// <summary>
+		/// Desplazamiento de UTC de la dirección 1 (diferencia entre la hora local y el Horario universal coordinado).
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address1_utcoffset")]
+		public System.Nullable<int> Address1_UTCOffset
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("address1_utcoffset");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address1_UTCOffset");
+				this.SetAttributeValue("address1_utcoffset", value);
+				this.OnPropertyChanged("Address1_UTCOffset");
+			}
+		}
+		
+		/// <summary>
+		/// Identificador único de la dirección 2.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address2_addressid")]
+		public System.Nullable<System.Guid> Address2_AddressId
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.Guid>>("address2_addressid");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address2_AddressId");
+				this.SetAttributeValue("address2_addressid", value);
+				this.OnPropertyChanged("Address2_AddressId");
+			}
+		}
+		
+		/// <summary>
+		/// Tipo de la dirección 2 (por ejemplo, de facturación, de envío o dirección principal).
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address2_addresstypecode")]
+		public Microsoft.Xrm.Sdk.OptionSetValue Address2_AddressTypeCode
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("address2_addresstypecode");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address2_AddressTypeCode");
+				this.SetAttributeValue("address2_addresstypecode", value);
+				this.OnPropertyChanged("Address2_AddressTypeCode");
+			}
+		}
+		
+		/// <summary>
+		/// Ciudad de la dirección 2.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address2_city")]
+		public string Address2_City
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("address2_city");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address2_City");
+				this.SetAttributeValue("address2_city", value);
+				this.OnPropertyChanged("Address2_City");
+			}
+		}
+		
+		/// <summary>
+		/// Muestra la dirección secundaria completa.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address2_composite")]
+		public string Address2_Composite
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("address2_composite");
+			}
+		}
+		
+		/// <summary>
+		/// País o región de la dirección 2.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address2_country")]
+		public string Address2_Country
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("address2_country");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address2_Country");
+				this.SetAttributeValue("address2_country", value);
+				this.OnPropertyChanged("Address2_Country");
+			}
+		}
+		
+		/// <summary>
+		/// Condado de la dirección 2.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address2_county")]
+		public string Address2_County
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("address2_county");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address2_County");
+				this.SetAttributeValue("address2_county", value);
+				this.OnPropertyChanged("Address2_County");
+			}
+		}
+		
+		/// <summary>
+		/// Número de fax de la dirección 2.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address2_fax")]
+		public string Address2_Fax
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("address2_fax");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address2_Fax");
+				this.SetAttributeValue("address2_fax", value);
+				this.OnPropertyChanged("Address2_Fax");
+			}
+		}
+		
+		/// <summary>
+		/// Latitud de la dirección 2.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address2_latitude")]
+		public System.Nullable<double> Address2_Latitude
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<double>>("address2_latitude");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address2_Latitude");
+				this.SetAttributeValue("address2_latitude", value);
+				this.OnPropertyChanged("Address2_Latitude");
+			}
+		}
+		
+		/// <summary>
+		/// Primera línea para escribir la dirección 2.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address2_line1")]
+		public string Address2_Line1
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("address2_line1");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address2_Line1");
+				this.SetAttributeValue("address2_line1", value);
+				this.OnPropertyChanged("Address2_Line1");
+			}
+		}
+		
+		/// <summary>
+		/// Segunda línea para escribir la dirección 2.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address2_line2")]
+		public string Address2_Line2
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("address2_line2");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address2_Line2");
+				this.SetAttributeValue("address2_line2", value);
+				this.OnPropertyChanged("Address2_Line2");
+			}
+		}
+		
+		/// <summary>
+		/// Tercera línea para escribir la dirección 2.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address2_line3")]
+		public string Address2_Line3
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("address2_line3");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address2_Line3");
+				this.SetAttributeValue("address2_line3", value);
+				this.OnPropertyChanged("Address2_Line3");
+			}
+		}
+		
+		/// <summary>
+		/// Longitud de la dirección 2.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address2_longitude")]
+		public System.Nullable<double> Address2_Longitude
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<double>>("address2_longitude");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address2_Longitude");
+				this.SetAttributeValue("address2_longitude", value);
+				this.OnPropertyChanged("Address2_Longitude");
+			}
+		}
+		
+		/// <summary>
+		/// Nombre para la dirección 2.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address2_name")]
+		public string Address2_Name
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("address2_name");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address2_Name");
+				this.SetAttributeValue("address2_name", value);
+				this.OnPropertyChanged("Address2_Name");
+			}
+		}
+		
+		/// <summary>
+		/// Código postal de la dirección 2.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address2_postalcode")]
+		public string Address2_PostalCode
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("address2_postalcode");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address2_PostalCode");
+				this.SetAttributeValue("address2_postalcode", value);
+				this.OnPropertyChanged("Address2_PostalCode");
+			}
+		}
+		
+		/// <summary>
+		/// Apartado de correos de la dirección 2.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address2_postofficebox")]
+		public string Address2_PostOfficeBox
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("address2_postofficebox");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address2_PostOfficeBox");
+				this.SetAttributeValue("address2_postofficebox", value);
+				this.OnPropertyChanged("Address2_PostOfficeBox");
+			}
+		}
+		
+		/// <summary>
+		/// Modo de envío de la dirección 2.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address2_shippingmethodcode")]
+		public Microsoft.Xrm.Sdk.OptionSetValue Address2_ShippingMethodCode
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("address2_shippingmethodcode");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address2_ShippingMethodCode");
+				this.SetAttributeValue("address2_shippingmethodcode", value);
+				this.OnPropertyChanged("Address2_ShippingMethodCode");
+			}
+		}
+		
+		/// <summary>
+		/// Estado o provincia de la dirección 2.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address2_stateorprovince")]
+		public string Address2_StateOrProvince
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("address2_stateorprovince");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address2_StateOrProvince");
+				this.SetAttributeValue("address2_stateorprovince", value);
+				this.OnPropertyChanged("Address2_StateOrProvince");
+			}
+		}
+		
+		/// <summary>
+		/// Primer nº de teléfono asociado con la dirección 2.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address2_telephone1")]
+		public string Address2_Telephone1
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("address2_telephone1");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address2_Telephone1");
+				this.SetAttributeValue("address2_telephone1", value);
+				this.OnPropertyChanged("Address2_Telephone1");
+			}
+		}
+		
+		/// <summary>
+		/// Segundo nº de teléfono asociado con la dirección 2.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address2_telephone2")]
+		public string Address2_Telephone2
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("address2_telephone2");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address2_Telephone2");
+				this.SetAttributeValue("address2_telephone2", value);
+				this.OnPropertyChanged("Address2_Telephone2");
+			}
+		}
+		
+		/// <summary>
+		/// Tercer nº de teléfono asociado con la dirección 2.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address2_telephone3")]
+		public string Address2_Telephone3
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("address2_telephone3");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address2_Telephone3");
+				this.SetAttributeValue("address2_telephone3", value);
+				this.OnPropertyChanged("Address2_Telephone3");
+			}
+		}
+		
+		/// <summary>
+		/// Zona de UPS (United Parcel Service) de la dirección 2.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address2_upszone")]
+		public string Address2_UPSZone
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("address2_upszone");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address2_UPSZone");
+				this.SetAttributeValue("address2_upszone", value);
+				this.OnPropertyChanged("Address2_UPSZone");
+			}
+		}
+		
+		/// <summary>
+		/// Desplazamiento de UTC de la dirección 2 (diferencia entre la hora local y el Horario universal coordinado).
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("address2_utcoffset")]
+		public System.Nullable<int> Address2_UTCOffset
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("address2_utcoffset");
+			}
+			set
+			{
+				this.OnPropertyChanging("Address2_UTCOffset");
+				this.SetAttributeValue("address2_utcoffset", value);
+				this.OnPropertyChanged("Address2_UTCOffset");
+			}
+		}
+		
+		/// <summary>
+		/// El Id. de la aplicación. Se usa para obtener acceso a los datos de otra aplicación.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("applicationid")]
+		public System.Nullable<System.Guid> ApplicationId
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.Guid>>("applicationid");
+			}
+			set
+			{
+				this.OnPropertyChanging("ApplicationId");
+				this.SetAttributeValue("applicationid", value);
+				this.OnPropertyChanged("ApplicationId");
+			}
+		}
+		
+		/// <summary>
+		/// El URI usado como Id. de usuario único de la aplicación externa. Se puede usar para validar la aplicación.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("applicationiduri")]
+		public string ApplicationIdUri
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("applicationiduri");
+			}
+		}
+		
+		/// <summary>
+		/// Es el Id. de objeto del directorio de la aplicación
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("azureactivedirectoryobjectid")]
+		public System.Nullable<System.Guid> AzureActiveDirectoryObjectId
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.Guid>>("azureactivedirectoryobjectid");
+			}
+		}
+		
+		/// <summary>
+		/// Identificador único de la unidad de negocio con la que está asociado el usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("businessunitid")]
+		public Microsoft.Xrm.Sdk.EntityReference BusinessUnitId
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("businessunitid");
+			}
+			set
+			{
+				this.OnPropertyChanging("BusinessUnitId");
+				this.SetAttributeValue("businessunitid", value);
+				this.OnPropertyChanged("BusinessUnitId");
+			}
+		}
+		
+		/// <summary>
+		/// Calendario fiscal asociado con el usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("calendarid")]
+		public Microsoft.Xrm.Sdk.EntityReference CalendarId
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("calendarid");
+			}
+			set
+			{
+				this.OnPropertyChanging("CalendarId");
+				this.SetAttributeValue("calendarid", value);
+				this.OnPropertyChanged("CalendarId");
+			}
+		}
+		
+		/// <summary>
+		/// Tipo de licencia de usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("caltype")]
+		public Microsoft.Xrm.Sdk.OptionSetValue CALType
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("caltype");
+			}
+			set
+			{
+				this.OnPropertyChanging("CALType");
+				this.SetAttributeValue("caltype", value);
+				this.OnPropertyChanged("CALType");
+			}
+		}
+		
+		/// <summary>
+		/// Identificador único del usuario que creó el usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdby")]
+		public Microsoft.Xrm.Sdk.EntityReference CreatedBy
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("createdby");
+			}
+		}
+		
+		/// <summary>
+		/// Fecha y hora en que se creó el usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdon")]
+		public System.Nullable<System.DateTime> CreatedOn
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("createdon");
+			}
+		}
+		
+		/// <summary>
+		/// Identificador único del usuario delegado que creó el usuario del sistema.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdonbehalfby")]
+		public Microsoft.Xrm.Sdk.EntityReference CreatedOnBehalfBy
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("createdonbehalfby");
+			}
+			set
+			{
+				this.OnPropertyChanging("CreatedOnBehalfBy");
+				this.SetAttributeValue("createdonbehalfby", value);
+				this.OnPropertyChanged("CreatedOnBehalfBy");
+			}
+		}
+		
+		/// <summary>
+		/// Indica si se rellenaron los filtros de Outlook predeterminados.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defaultfilterspopulated")]
+		public System.Nullable<bool> DefaultFiltersPopulated
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("defaultfilterspopulated");
+			}
+		}
+		
+		/// <summary>
+		/// Seleccione el buzón asociado con este usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defaultmailbox")]
+		public Microsoft.Xrm.Sdk.EntityReference DefaultMailbox
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("defaultmailbox");
+			}
+		}
+		
+		/// <summary>
+		/// Escriba un nombre de carpeta predeterminado para la ubicación de OneDrive para la Empresa del usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("defaultodbfoldername")]
+		public string DefaultOdbFolderName
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("defaultodbfoldername");
+			}
+		}
+		
+		/// <summary>
+		/// Razón para deshabilitar el usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("disabledreason")]
+		public string DisabledReason
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("disabledreason");
+			}
+		}
+		
+		/// <summary>
+		/// Especifica si se debe mostrar el usuario en vistas de servicio.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("displayinserviceviews")]
+		public System.Nullable<bool> DisplayInServiceViews
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("displayinserviceviews");
+			}
+			set
+			{
+				this.OnPropertyChanging("DisplayInServiceViews");
+				this.SetAttributeValue("displayinserviceviews", value);
+				this.OnPropertyChanged("DisplayInServiceViews");
+			}
+		}
+		
+		/// <summary>
+		/// Dominio de Active Directory del que el usuario es integrante.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("domainname")]
+		public string DomainName
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("domainname");
+			}
+			set
+			{
+				this.OnPropertyChanging("DomainName");
+				this.SetAttributeValue("domainname", value);
+				this.OnPropertyChanged("DomainName");
+			}
+		}
+		
+		/// <summary>
+		/// Muestra el estado de la dirección de correo electrónico principal.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("emailrouteraccessapproval")]
+		public Microsoft.Xrm.Sdk.OptionSetValue EmailRouterAccessApproval
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("emailrouteraccessapproval");
+			}
+			set
+			{
+				this.OnPropertyChanging("EmailRouterAccessApproval");
+				this.SetAttributeValue("emailrouteraccessapproval", value);
+				this.OnPropertyChanged("EmailRouterAccessApproval");
+			}
+		}
+		
+		/// <summary>
+		/// Identificador de empleado del usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("employeeid")]
+		public string EmployeeId
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("employeeid");
+			}
+			set
+			{
+				this.OnPropertyChanging("EmployeeId");
+				this.SetAttributeValue("employeeid", value);
+				this.OnPropertyChanged("EmployeeId");
+			}
+		}
+		
+		/// <summary>
+		/// Muestra la imagen predeterminada del registro.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("entityimage")]
+		public byte[] EntityImage
+		{
+			get
+			{
+				return this.GetAttributeValue<byte[]>("entityimage");
+			}
+			set
+			{
+				this.OnPropertyChanging("EntityImage");
+				this.SetAttributeValue("entityimage", value);
+				this.OnPropertyChanged("EntityImage");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("entityimage_timestamp")]
+		public System.Nullable<long> EntityImage_Timestamp
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<long>>("entityimage_timestamp");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("entityimage_url")]
+		public string EntityImage_URL
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("entityimage_url");
+			}
+		}
+		
+		/// <summary>
+		/// Para uso interno.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("entityimageid")]
+		public System.Nullable<System.Guid> EntityImageId
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.Guid>>("entityimageid");
+			}
+		}
+		
+		/// <summary>
+		/// Tipo de cambio de la divisa asociada al usuario del sistema con respecto a la divisa base.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("exchangerate")]
+		public System.Nullable<decimal> ExchangeRate
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<decimal>>("exchangerate");
+			}
+		}
+		
+		/// <summary>
+		/// Nombre de pila del usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("firstname")]
+		public string FirstName
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("firstname");
+			}
+			set
+			{
+				this.OnPropertyChanging("FirstName");
+				this.SetAttributeValue("firstname", value);
+				this.OnPropertyChanged("FirstName");
+			}
+		}
+		
+		/// <summary>
+		/// Nombre completo del usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("fullname")]
+		public string FullName
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("fullname");
+			}
+		}
+		
+		/// <summary>
+		/// Identificador gubernamental del usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("governmentid")]
+		public string GovernmentId
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("governmentid");
+			}
+			set
+			{
+				this.OnPropertyChanging("GovernmentId");
+				this.SetAttributeValue("governmentid", value);
+				this.OnPropertyChanged("GovernmentId");
+			}
+		}
+		
+		/// <summary>
+		/// Teléfono particular del usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("homephone")]
+		public string HomePhone
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("homephone");
+			}
+			set
+			{
+				this.OnPropertyChanging("HomePhone");
+				this.SetAttributeValue("homephone", value);
+				this.OnPropertyChanged("HomePhone");
+			}
+		}
+		
+		/// <summary>
+		/// Identificador único de la importación o la migración de datos que creó este registro.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("importsequencenumber")]
+		public System.Nullable<int> ImportSequenceNumber
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("importsequencenumber");
+			}
+			set
+			{
+				this.OnPropertyChanging("ImportSequenceNumber");
+				this.SetAttributeValue("importsequencenumber", value);
+				this.OnPropertyChanged("ImportSequenceNumber");
+			}
+		}
+		
+		/// <summary>
+		/// Método de entrega de correo electrónico entrante para el usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("incomingemaildeliverymethod")]
+		public Microsoft.Xrm.Sdk.OptionSetValue IncomingEmailDeliveryMethod
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("incomingemaildeliverymethod");
+			}
+			set
+			{
+				this.OnPropertyChanging("IncomingEmailDeliveryMethod");
+				this.SetAttributeValue("incomingemaildeliverymethod", value);
+				this.OnPropertyChanged("IncomingEmailDeliveryMethod");
+			}
+		}
+		
+		/// <summary>
+		/// Dirección de correo electrónico interna del usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("internalemailaddress")]
+		public string InternalEMailAddress
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("internalemailaddress");
+			}
+			set
+			{
+				this.OnPropertyChanging("InternalEMailAddress");
+				this.SetAttributeValue("internalemailaddress", value);
+				this.OnPropertyChanged("InternalEMailAddress");
+			}
+		}
+		
+		/// <summary>
+		/// Estado de invitación del usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("invitestatuscode")]
+		public Microsoft.Xrm.Sdk.OptionSetValue InviteStatusCode
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("invitestatuscode");
+			}
+			set
+			{
+				this.OnPropertyChanging("InviteStatusCode");
+				this.SetAttributeValue("invitestatuscode", value);
+				this.OnPropertyChanged("InviteStatusCode");
+			}
+		}
+		
+		/// <summary>
+		/// Especifica si el usuario está habilitado.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("isdisabled")]
+		public System.Nullable<bool> IsDisabled
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("isdisabled");
+			}
+		}
+		
+		/// <summary>
+		/// Muestra el estado de aprobación de la dirección de correo electrónico por Administración O365.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("isemailaddressapprovedbyo365admin")]
+		public System.Nullable<bool> IsEmailAddressApprovedByO365Admin
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("isemailaddressapprovedbyo365admin");
+			}
+		}
+		
+		/// <summary>
+		/// Permite comprobar si el usuario es un usuario de integración.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("isintegrationuser")]
+		public System.Nullable<bool> IsIntegrationUser
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("isintegrationuser");
+			}
+			set
+			{
+				this.OnPropertyChanging("IsIntegrationUser");
+				this.SetAttributeValue("isintegrationuser", value);
+				this.OnPropertyChanged("IsIntegrationUser");
+			}
+		}
+		
+		/// <summary>
+		/// Información sobre si el usuario tiene licencia.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("islicensed")]
+		public System.Nullable<bool> IsLicensed
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("islicensed");
+			}
+			set
+			{
+				this.OnPropertyChanging("IsLicensed");
+				this.SetAttributeValue("islicensed", value);
+				this.OnPropertyChanged("IsLicensed");
+			}
+		}
+		
+		/// <summary>
+		/// Información sobre si el usuario está sincronizado con el directorio.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("issyncwithdirectory")]
+		public System.Nullable<bool> IsSyncWithDirectory
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("issyncwithdirectory");
+			}
+			set
+			{
+				this.OnPropertyChanging("IsSyncWithDirectory");
+				this.SetAttributeValue("issyncwithdirectory", value);
+				this.OnPropertyChanged("IsSyncWithDirectory");
+			}
+		}
+		
+		/// <summary>
+		/// Puesto del usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("jobtitle")]
+		public string JobTitle
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("jobtitle");
+			}
+			set
+			{
+				this.OnPropertyChanging("JobTitle");
+				this.SetAttributeValue("jobtitle", value);
+				this.OnPropertyChanged("JobTitle");
+			}
+		}
+		
+		/// <summary>
+		/// Apellidos del usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("lastname")]
+		public string LastName
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("lastname");
+			}
+			set
+			{
+				this.OnPropertyChanging("LastName");
+				this.SetAttributeValue("lastname", value);
+				this.OnPropertyChanged("LastName");
+			}
+		}
+		
+		/// <summary>
+		/// Segundo nombre del usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("middlename")]
+		public string MiddleName
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("middlename");
+			}
+			set
+			{
+				this.OnPropertyChanging("MiddleName");
+				this.SetAttributeValue("middlename", value);
+				this.OnPropertyChanged("MiddleName");
+			}
+		}
+		
+		/// <summary>
+		/// Dirección de correo electrónico de alerta móvil del usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mobilealertemail")]
+		public string MobileAlertEMail
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("mobilealertemail");
+			}
+			set
+			{
+				this.OnPropertyChanging("MobileAlertEMail");
+				this.SetAttributeValue("mobilealertemail", value);
+				this.OnPropertyChanged("MobileAlertEMail");
+			}
+		}
+		
+		/// <summary>
+		/// Elementos contenidos en un usuario del sistema determinado.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mobileofflineprofileid")]
+		public Microsoft.Xrm.Sdk.EntityReference MobileOfflineProfileId
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("mobileofflineprofileid");
+			}
+			set
+			{
+				this.OnPropertyChanging("MobileOfflineProfileId");
+				this.SetAttributeValue("mobileofflineprofileid", value);
+				this.OnPropertyChanged("MobileOfflineProfileId");
+			}
+		}
+		
+		/// <summary>
+		/// Número de teléfono móvil del usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("mobilephone")]
+		public string MobilePhone
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("mobilephone");
+			}
+			set
+			{
+				this.OnPropertyChanging("MobilePhone");
+				this.SetAttributeValue("mobilephone", value);
+				this.OnPropertyChanged("MobilePhone");
+			}
+		}
+		
+		/// <summary>
+		/// Identificador único del usuario que modificó el usuario por última vez.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedby")]
+		public Microsoft.Xrm.Sdk.EntityReference ModifiedBy
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("modifiedby");
+			}
+		}
+		
+		/// <summary>
+		/// Fecha y hora en que se modificó el usuario por última vez.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedon")]
+		public System.Nullable<System.DateTime> ModifiedOn
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("modifiedon");
+			}
+		}
+		
+		/// <summary>
+		/// Identificador único del usuario delegado que modificó el usuario del sistema por última vez.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedonbehalfby")]
+		public Microsoft.Xrm.Sdk.EntityReference ModifiedOnBehalfBy
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("modifiedonbehalfby");
+			}
+			set
+			{
+				this.OnPropertyChanging("ModifiedOnBehalfBy");
+				this.SetAttributeValue("modifiedonbehalfby", value);
+				this.OnPropertyChanged("ModifiedOnBehalfBy");
+			}
+		}
+		
+		/// <summary>
+		/// Sobrenombre del usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("nickname")]
+		public string NickName
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("nickname");
+			}
+			set
+			{
+				this.OnPropertyChanging("NickName");
+				this.SetAttributeValue("nickname", value);
+				this.OnPropertyChanged("NickName");
+			}
+		}
+		
+		/// <summary>
+		/// Identificador único de la organización asociada con el usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("organizationid")]
+		public System.Nullable<System.Guid> OrganizationId
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.Guid>>("organizationid");
+			}
+		}
+		
+		/// <summary>
+		/// Método de entrega de correo electrónico saliente para el usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("outgoingemaildeliverymethod")]
+		public Microsoft.Xrm.Sdk.OptionSetValue OutgoingEmailDeliveryMethod
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("outgoingemaildeliverymethod");
+			}
+			set
+			{
+				this.OnPropertyChanging("OutgoingEmailDeliveryMethod");
+				this.SetAttributeValue("outgoingemaildeliverymethod", value);
+				this.OnPropertyChanged("OutgoingEmailDeliveryMethod");
+			}
+		}
+		
+		/// <summary>
+		/// Fecha y hora en que se migró el registro.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("overriddencreatedon")]
+		public System.Nullable<System.DateTime> OverriddenCreatedOn
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("overriddencreatedon");
+			}
+			set
+			{
+				this.OnPropertyChanging("OverriddenCreatedOn");
+				this.SetAttributeValue("overriddencreatedon", value);
+				this.OnPropertyChanged("OverriddenCreatedOn");
+			}
+		}
+		
+		/// <summary>
+		/// Identificador único del jefe del usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("parentsystemuserid")]
+		public Microsoft.Xrm.Sdk.EntityReference ParentSystemUserId
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("parentsystemuserid");
+			}
+			set
+			{
+				this.OnPropertyChanging("ParentSystemUserId");
+				this.SetAttributeValue("parentsystemuserid", value);
+				this.OnPropertyChanged("ParentSystemUserId");
+			}
+		}
+		
+		/// <summary>
+		/// Para uso interno.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("passporthi")]
+		public System.Nullable<int> PassportHi
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("passporthi");
+			}
+			set
+			{
+				this.OnPropertyChanging("PassportHi");
+				this.SetAttributeValue("passporthi", value);
+				this.OnPropertyChanged("PassportHi");
+			}
+		}
+		
+		/// <summary>
+		/// Para uso interno.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("passportlo")]
+		public System.Nullable<int> PassportLo
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("passportlo");
+			}
+			set
+			{
+				this.OnPropertyChanging("PassportLo");
+				this.SetAttributeValue("passportlo", value);
+				this.OnPropertyChanged("PassportLo");
+			}
+		}
+		
+		/// <summary>
+		/// Dirección de correo electrónico personal del usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("personalemailaddress")]
+		public string PersonalEMailAddress
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("personalemailaddress");
+			}
+			set
+			{
+				this.OnPropertyChanging("PersonalEMailAddress");
+				this.SetAttributeValue("personalemailaddress", value);
+				this.OnPropertyChanged("PersonalEMailAddress");
+			}
+		}
+		
+		/// <summary>
+		/// Dirección URL del sitio web en el que hay una foto del usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("photourl")]
+		public string PhotoUrl
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("photourl");
+			}
+			set
+			{
+				this.OnPropertyChanging("PhotoUrl");
+				this.SetAttributeValue("photourl", value);
+				this.OnPropertyChanged("PhotoUrl");
+			}
+		}
+		
+		/// <summary>
+		/// Posición del usuario en el modelo de seguridad jerárquica.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("positionid")]
+		public Microsoft.Xrm.Sdk.EntityReference PositionId
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("positionid");
+			}
+			set
+			{
+				this.OnPropertyChanging("PositionId");
+				this.SetAttributeValue("positionid", value);
+				this.OnPropertyChanged("PositionId");
+			}
+		}
+		
+		/// <summary>
+		/// Dirección preferida del usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("preferredaddresscode")]
+		public Microsoft.Xrm.Sdk.OptionSetValue PreferredAddressCode
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("preferredaddresscode");
+			}
+			set
+			{
+				this.OnPropertyChanging("PreferredAddressCode");
+				this.SetAttributeValue("preferredaddresscode", value);
+				this.OnPropertyChanged("PreferredAddressCode");
+			}
+		}
+		
+		/// <summary>
+		/// Dirección de correo electrónico preferida del usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("preferredemailcode")]
+		public Microsoft.Xrm.Sdk.OptionSetValue PreferredEmailCode
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("preferredemailcode");
+			}
+			set
+			{
+				this.OnPropertyChanging("PreferredEmailCode");
+				this.SetAttributeValue("preferredemailcode", value);
+				this.OnPropertyChanged("PreferredEmailCode");
+			}
+		}
+		
+		/// <summary>
+		/// Número de teléfono preferido del usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("preferredphonecode")]
+		public Microsoft.Xrm.Sdk.OptionSetValue PreferredPhoneCode
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("preferredphonecode");
+			}
+			set
+			{
+				this.OnPropertyChanging("PreferredPhoneCode");
+				this.SetAttributeValue("preferredphonecode", value);
+				this.OnPropertyChanged("PreferredPhoneCode");
+			}
+		}
+		
+		/// <summary>
+		/// Muestra el identificador del proceso.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("processid")]
+		public System.Nullable<System.Guid> ProcessId
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.Guid>>("processid");
+			}
+			set
+			{
+				this.OnPropertyChanging("ProcessId");
+				this.SetAttributeValue("processid", value);
+				this.OnPropertyChanged("ProcessId");
+			}
+		}
+		
+		/// <summary>
+		/// Identificador único de la cola predeterminada para el usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("queueid")]
+		public Microsoft.Xrm.Sdk.EntityReference QueueId
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("queueid");
+			}
+			set
+			{
+				this.OnPropertyChanging("QueueId");
+				this.SetAttributeValue("queueid", value);
+				this.OnPropertyChanged("QueueId");
+			}
+		}
+		
+		/// <summary>
+		/// Saludo para la correspondencia con el usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("salutation")]
+		public string Salutation
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("salutation");
+			}
+			set
+			{
+				this.OnPropertyChanging("Salutation");
+				this.SetAttributeValue("salutation", value);
+				this.OnPropertyChanged("Salutation");
+			}
+		}
+		
+		/// <summary>
+		/// Compruebe si el usuario es un usuario de instalación.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("setupuser")]
+		public System.Nullable<bool> SetupUser
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<bool>>("setupuser");
+			}
+			set
+			{
+				this.OnPropertyChanging("SetupUser");
+				this.SetAttributeValue("setupuser", value);
+				this.OnPropertyChanged("SetupUser");
+			}
+		}
+		
+		/// <summary>
+		/// Dirección de correo electrónico de trabajo de SharePoint
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("sharepointemailaddress")]
+		public string SharePointEmailAddress
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("sharepointemailaddress");
+			}
+			set
+			{
+				this.OnPropertyChanging("SharePointEmailAddress");
+				this.SetAttributeValue("sharepointemailaddress", value);
+				this.OnPropertyChanged("SharePointEmailAddress");
+			}
+		}
+		
+		/// <summary>
+		/// Ubicación del usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("siteid")]
+		public Microsoft.Xrm.Sdk.EntityReference SiteId
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("siteid");
+			}
+			set
+			{
+				this.OnPropertyChanging("SiteId");
+				this.SetAttributeValue("siteid", value);
+				this.OnPropertyChanged("SiteId");
+			}
+		}
+		
+		/// <summary>
+		/// Conocimientos del usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("skills")]
+		public string Skills
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("skills");
+			}
+			set
+			{
+				this.OnPropertyChanging("Skills");
+				this.SetAttributeValue("skills", value);
+				this.OnPropertyChanged("Skills");
+			}
+		}
+		
+		/// <summary>
+		/// Muestra el identificador de la fase.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("stageid")]
+		public System.Nullable<System.Guid> StageId
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.Guid>>("stageid");
+			}
+			set
+			{
+				this.OnPropertyChanging("StageId");
+				this.SetAttributeValue("stageid", value);
+				this.OnPropertyChanged("StageId");
+			}
+		}
+		
+		/// <summary>
+		/// Identificador único del usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("systemuserid")]
+		public System.Nullable<System.Guid> SystemUserId
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.Guid>>("systemuserid");
+			}
+			set
+			{
+				this.OnPropertyChanging("SystemUserId");
+				this.SetAttributeValue("systemuserid", value);
+				if (value.HasValue)
+				{
+					base.Id = value.Value;
+				}
+				else
+				{
+					base.Id = System.Guid.Empty;
+				}
+				this.OnPropertyChanged("SystemUserId");
+			}
+		}
+		
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("systemuserid")]
+		public override System.Guid Id
+		{
+			get
+			{
+				return base.Id;
+			}
+			set
+			{
+				this.SystemUserId = value;
+			}
+		}
+		
+		/// <summary>
+		/// Identificador único de la zona de ventas a la que está asignado el usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("territoryid")]
+		public Microsoft.Xrm.Sdk.EntityReference TerritoryId
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("territoryid");
+			}
+			set
+			{
+				this.OnPropertyChanging("TerritoryId");
+				this.SetAttributeValue("territoryid", value);
+				this.OnPropertyChanged("TerritoryId");
+			}
+		}
+		
+		/// <summary>
+		/// Para uso interno.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("timezoneruleversionnumber")]
+		public System.Nullable<int> TimeZoneRuleVersionNumber
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("timezoneruleversionnumber");
+			}
+			set
+			{
+				this.OnPropertyChanging("TimeZoneRuleVersionNumber");
+				this.SetAttributeValue("timezoneruleversionnumber", value);
+				this.OnPropertyChanged("TimeZoneRuleVersionNumber");
+			}
+		}
+		
+		/// <summary>
+		/// Título del usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("title")]
+		public string Title
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("title");
+			}
+			set
+			{
+				this.OnPropertyChanging("Title");
+				this.SetAttributeValue("title", value);
+				this.OnPropertyChanged("Title");
+			}
+		}
+		
+		/// <summary>
+		/// Identificador único de la divisa asociada al usuario del sistema.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("transactioncurrencyid")]
+		public Microsoft.Xrm.Sdk.EntityReference TransactionCurrencyId
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("transactioncurrencyid");
+			}
+			set
+			{
+				this.OnPropertyChanging("TransactionCurrencyId");
+				this.SetAttributeValue("transactioncurrencyid", value);
+				this.OnPropertyChanged("TransactionCurrencyId");
+			}
+		}
+		
+		/// <summary>
+		/// Solo para uso interno.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("traversedpath")]
+		public string TraversedPath
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("traversedpath");
+			}
+			set
+			{
+				this.OnPropertyChanging("TraversedPath");
+				this.SetAttributeValue("traversedpath", value);
+				this.OnPropertyChanged("TraversedPath");
+			}
+		}
+		
+		/// <summary>
+		/// Identificador único de Colegios asociado con Usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ua_colegio")]
+		public Microsoft.Xrm.Sdk.EntityReference ua_Colegio
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("ua_colegio");
+			}
+			set
+			{
+				this.OnPropertyChanging("ua_Colegio");
+				this.SetAttributeValue("ua_colegio", value);
+				this.OnPropertyChanged("ua_Colegio");
+			}
+		}
+		
+		/// <summary>
+		/// Identificador único de Prospecto asociado con Usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ua_usuariovpdid")]
+		public Microsoft.Xrm.Sdk.EntityReference ua_UsuarioVPDId
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("ua_usuariovpdid");
+			}
+			set
+			{
+				this.OnPropertyChanging("ua_UsuarioVPDId");
+				this.SetAttributeValue("ua_usuariovpdid", value);
+				this.OnPropertyChanged("ua_UsuarioVPDId");
+			}
+		}
+		
+		/// <summary>
+		/// Muestra el tipo de licencia de usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("userlicensetype")]
+		public System.Nullable<int> UserLicenseType
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("userlicensetype");
+			}
+			set
+			{
+				this.OnPropertyChanging("UserLicenseType");
+				this.SetAttributeValue("userlicensetype", value);
+				this.OnPropertyChanged("UserLicenseType");
+			}
+		}
+		
+		/// <summary>
+		/// Código de la zona horaria que estaba en uso cuando se creó el registro.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("utcconversiontimezonecode")]
+		public System.Nullable<int> UTCConversionTimeZoneCode
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("utcconversiontimezonecode");
+			}
+			set
+			{
+				this.OnPropertyChanging("UTCConversionTimeZoneCode");
+				this.SetAttributeValue("utcconversiontimezonecode", value);
+				this.OnPropertyChanged("UTCConversionTimeZoneCode");
+			}
+		}
+		
+		/// <summary>
+		/// Número de versión del usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("versionnumber")]
+		public System.Nullable<long> VersionNumber
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<long>>("versionnumber");
+			}
+		}
+		
+		/// <summary>
+		/// Windows Live ID
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("windowsliveid")]
+		public string WindowsLiveID
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("windowsliveid");
+			}
+			set
+			{
+				this.OnPropertyChanging("WindowsLiveID");
+				this.SetAttributeValue("windowsliveid", value);
+				this.OnPropertyChanged("WindowsLiveID");
+			}
+		}
+		
+		/// <summary>
+		/// Dirección de correo electrónico de inicio de sesión en Yammer del usuario.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("yammeremailaddress")]
+		public string YammerEmailAddress
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("yammeremailaddress");
+			}
+			set
+			{
+				this.OnPropertyChanging("YammerEmailAddress");
+				this.SetAttributeValue("yammeremailaddress", value);
+				this.OnPropertyChanged("YammerEmailAddress");
+			}
+		}
+		
+		/// <summary>
+		/// Id. de Yammer del usuario
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("yammeruserid")]
+		public string YammerUserId
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("yammeruserid");
+			}
+			set
+			{
+				this.OnPropertyChanging("YammerUserId");
+				this.SetAttributeValue("yammeruserid", value);
+				this.OnPropertyChanged("YammerUserId");
+			}
+		}
+		
+		/// <summary>
+		/// Pronunciación del nombre de pila del usuario, escrito en caracteres fonéticos hiragana o katakana.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("yomifirstname")]
+		public string YomiFirstName
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("yomifirstname");
+			}
+			set
+			{
+				this.OnPropertyChanging("YomiFirstName");
+				this.SetAttributeValue("yomifirstname", value);
+				this.OnPropertyChanged("YomiFirstName");
+			}
+		}
+		
+		/// <summary>
+		/// Pronunciación del nombre completo del usuario, escrito en caracteres fonéticos hiragana o katakana.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("yomifullname")]
+		public string YomiFullName
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("yomifullname");
+			}
+		}
+		
+		/// <summary>
+		/// Pronunciación del apellido del usuario, escrito en caracteres fonéticos hiragana o katakana.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("yomilastname")]
+		public string YomiLastName
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("yomilastname");
+			}
+			set
+			{
+				this.OnPropertyChanging("YomiLastName");
+				this.SetAttributeValue("yomilastname", value);
+				this.OnPropertyChanged("YomiLastName");
+			}
+		}
+		
+		/// <summary>
+		/// Pronunciación del segundo nombre del usuario, escrito en caracteres fonéticos hiragana o katakana.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("yomimiddlename")]
+		public string YomiMiddleName
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("yomimiddlename");
+			}
+			set
+			{
+				this.OnPropertyChanging("YomiMiddleName");
+				this.SetAttributeValue("yomimiddlename", value);
+				this.OnPropertyChanged("YomiMiddleName");
+			}
+		}
+	}
+	
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "8.2.1.8676")]
+	public enum ua_colegiosState
+	{
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Active = 0,
+		
+		[System.Runtime.Serialization.EnumMemberAttribute()]
+		Inactive = 1,
+	}
+	
+	/// <summary>
+	/// 
+	/// </summary>
+	[System.Runtime.Serialization.DataContractAttribute()]
+	[Microsoft.Xrm.Sdk.Client.EntityLogicalNameAttribute("ua_colegios")]
+	[System.CodeDom.Compiler.GeneratedCodeAttribute("CrmSvcUtil", "8.2.1.8676")]
+	public partial class ua_colegios : Microsoft.Xrm.Sdk.Entity, System.ComponentModel.INotifyPropertyChanging, System.ComponentModel.INotifyPropertyChanged
+	{
+		
+		public static class Fields
+		{
+			public const string CreatedBy = "createdby";
+			public const string CreatedOn = "createdon";
+			public const string CreatedOnBehalfBy = "createdonbehalfby";
+			public const string ImportSequenceNumber = "importsequencenumber";
+			public const string ModifiedBy = "modifiedby";
+			public const string ModifiedOn = "modifiedon";
+			public const string ModifiedOnBehalfBy = "modifiedonbehalfby";
+			public const string OrganizationId = "organizationid";
+			public const string OverriddenCreatedOn = "overriddencreatedon";
+			public const string statecode = "statecode";
+			public const string statuscode = "statuscode";
+			public const string TimeZoneRuleVersionNumber = "timezoneruleversionnumber";
+			public const string ua_codigo_colegio = "ua_codigo_colegio";
+			public const string ua_colegio_calle = "ua_colegio_calle";
+			public const string ua_colegio_codigo_postal = "ua_colegio_codigo_postal";
+			public const string ua_colegio_colonia = "ua_colegio_colonia";
+			public const string ua_colegio_delegacion = "ua_colegio_delegacion";
+			public const string ua_colegio_estado = "ua_colegio_estado";
+			public const string ua_colegio_numero = "ua_colegio_numero";
+			public const string ua_colegio_pais = "ua_colegio_pais";
+			public const string ua_colegio_tipo_colegio = "ua_colegio_tipo_colegio";
+			public const string ua_colegiosId = "ua_colegiosid";
+			public const string Id = "ua_colegiosid";
+			public const string ua_ColegiosmetaId = "ua_colegiosmetaid";
+			public const string ua_desc_colegios = "ua_desc_colegios";
+			public const string UTCConversionTimeZoneCode = "utcconversiontimezonecode";
+			public const string VersionNumber = "versionnumber";
+		}
+
+		
+		/// <summary>
+		/// Default Constructor.
+		/// </summary>
+		public ua_colegios() : 
+				base(EntityLogicalName)
+		{
+		}
+		
+		public const string EntityLogicalName = "ua_colegios";
+		
+		public const int EntityTypeCode = 10242;
+		
+		public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+		
+		public event System.ComponentModel.PropertyChangingEventHandler PropertyChanging;
+		
+		private void OnPropertyChanged(string propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void OnPropertyChanging(string propertyName)
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, new System.ComponentModel.PropertyChangingEventArgs(propertyName));
+			}
+		}
+		
+		/// <summary>
+		/// Identificador único del usuario que creó el registro.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdby")]
+		public Microsoft.Xrm.Sdk.EntityReference CreatedBy
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("createdby");
+			}
+		}
+		
+		/// <summary>
+		/// Fecha y hora en que se creó el registro.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdon")]
+		public System.Nullable<System.DateTime> CreatedOn
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("createdon");
+			}
+		}
+		
+		/// <summary>
+		/// Identificador único del usuario delegado que creó el registro.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("createdonbehalfby")]
+		public Microsoft.Xrm.Sdk.EntityReference CreatedOnBehalfBy
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("createdonbehalfby");
+			}
+			set
+			{
+				this.OnPropertyChanging("CreatedOnBehalfBy");
+				this.SetAttributeValue("createdonbehalfby", value);
+				this.OnPropertyChanged("CreatedOnBehalfBy");
+			}
+		}
+		
+		/// <summary>
+		/// Número de secuencia de la importación que creó este registro.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("importsequencenumber")]
+		public System.Nullable<int> ImportSequenceNumber
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("importsequencenumber");
+			}
+			set
+			{
+				this.OnPropertyChanging("ImportSequenceNumber");
+				this.SetAttributeValue("importsequencenumber", value);
+				this.OnPropertyChanged("ImportSequenceNumber");
+			}
+		}
+		
+		/// <summary>
+		/// Identificador único del usuario que modificó el registro.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedby")]
+		public Microsoft.Xrm.Sdk.EntityReference ModifiedBy
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("modifiedby");
+			}
+		}
+		
+		/// <summary>
+		/// Fecha y hora en que se modificó el registro.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedon")]
+		public System.Nullable<System.DateTime> ModifiedOn
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("modifiedon");
+			}
+		}
+		
+		/// <summary>
+		/// Identificador único del usuario delegado que modificó el registro.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("modifiedonbehalfby")]
+		public Microsoft.Xrm.Sdk.EntityReference ModifiedOnBehalfBy
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("modifiedonbehalfby");
+			}
+			set
+			{
+				this.OnPropertyChanging("ModifiedOnBehalfBy");
+				this.SetAttributeValue("modifiedonbehalfby", value);
+				this.OnPropertyChanged("ModifiedOnBehalfBy");
+			}
+		}
+		
+		/// <summary>
+		/// Identificador único de la organización.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("organizationid")]
+		public Microsoft.Xrm.Sdk.EntityReference OrganizationId
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("organizationid");
+			}
+		}
+		
+		/// <summary>
+		/// Fecha y hora en que se migró el registro.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("overriddencreatedon")]
+		public System.Nullable<System.DateTime> OverriddenCreatedOn
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.DateTime>>("overriddencreatedon");
+			}
+			set
+			{
+				this.OnPropertyChanging("OverriddenCreatedOn");
+				this.SetAttributeValue("overriddencreatedon", value);
+				this.OnPropertyChanged("OverriddenCreatedOn");
+			}
+		}
+		
+		/// <summary>
+		/// Estado del Colegios
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("statecode")]
+		public System.Nullable<XRM.ua_colegiosState> statecode
+		{
+			get
+			{
+				Microsoft.Xrm.Sdk.OptionSetValue optionSet = this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("statecode");
+				if ((optionSet != null))
+				{
+					return ((XRM.ua_colegiosState)(System.Enum.ToObject(typeof(XRM.ua_colegiosState), optionSet.Value)));
+				}
+				else
+				{
+					return null;
+				}
+			}
+			set
+			{
+				this.OnPropertyChanging("statecode");
+				if ((value == null))
+				{
+					this.SetAttributeValue("statecode", null);
+				}
+				else
+				{
+					this.SetAttributeValue("statecode", new Microsoft.Xrm.Sdk.OptionSetValue(((int)(value))));
+				}
+				this.OnPropertyChanged("statecode");
+			}
+		}
+		
+		/// <summary>
+		/// Razón para el estado del Colegios
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("statuscode")]
+		public Microsoft.Xrm.Sdk.OptionSetValue statuscode
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("statuscode");
+			}
+			set
+			{
+				this.OnPropertyChanging("statuscode");
+				this.SetAttributeValue("statuscode", value);
+				this.OnPropertyChanged("statuscode");
+			}
+		}
+		
+		/// <summary>
+		/// Para uso interno.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("timezoneruleversionnumber")]
+		public System.Nullable<int> TimeZoneRuleVersionNumber
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("timezoneruleversionnumber");
+			}
+			set
+			{
+				this.OnPropertyChanging("TimeZoneRuleVersionNumber");
+				this.SetAttributeValue("timezoneruleversionnumber", value);
+				this.OnPropertyChanged("TimeZoneRuleVersionNumber");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ua_codigo_colegio")]
+		public string ua_codigo_colegio
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("ua_codigo_colegio");
+			}
+			set
+			{
+				this.OnPropertyChanging("ua_codigo_colegio");
+				this.SetAttributeValue("ua_codigo_colegio", value);
+				this.OnPropertyChanged("ua_codigo_colegio");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ua_colegio_calle")]
+		public string ua_colegio_calle
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("ua_colegio_calle");
+			}
+			set
+			{
+				this.OnPropertyChanging("ua_colegio_calle");
+				this.SetAttributeValue("ua_colegio_calle", value);
+				this.OnPropertyChanged("ua_colegio_calle");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ua_colegio_codigo_postal")]
+		public string ua_colegio_codigo_postal
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("ua_colegio_codigo_postal");
+			}
+			set
+			{
+				this.OnPropertyChanging("ua_colegio_codigo_postal");
+				this.SetAttributeValue("ua_colegio_codigo_postal", value);
+				this.OnPropertyChanged("ua_colegio_codigo_postal");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ua_colegio_colonia")]
+		public string ua_colegio_colonia
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("ua_colegio_colonia");
+			}
+			set
+			{
+				this.OnPropertyChanging("ua_colegio_colonia");
+				this.SetAttributeValue("ua_colegio_colonia", value);
+				this.OnPropertyChanged("ua_colegio_colonia");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ua_colegio_delegacion")]
+		public Microsoft.Xrm.Sdk.EntityReference ua_colegio_delegacion
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("ua_colegio_delegacion");
+			}
+			set
+			{
+				this.OnPropertyChanging("ua_colegio_delegacion");
+				this.SetAttributeValue("ua_colegio_delegacion", value);
+				this.OnPropertyChanged("ua_colegio_delegacion");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ua_colegio_estado")]
+		public Microsoft.Xrm.Sdk.EntityReference ua_colegio_estado
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("ua_colegio_estado");
+			}
+			set
+			{
+				this.OnPropertyChanging("ua_colegio_estado");
+				this.SetAttributeValue("ua_colegio_estado", value);
+				this.OnPropertyChanged("ua_colegio_estado");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ua_colegio_numero")]
+		public string ua_colegio_numero
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("ua_colegio_numero");
+			}
+			set
+			{
+				this.OnPropertyChanging("ua_colegio_numero");
+				this.SetAttributeValue("ua_colegio_numero", value);
+				this.OnPropertyChanged("ua_colegio_numero");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ua_colegio_pais")]
+		public Microsoft.Xrm.Sdk.EntityReference ua_colegio_pais
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("ua_colegio_pais");
+			}
+			set
+			{
+				this.OnPropertyChanging("ua_colegio_pais");
+				this.SetAttributeValue("ua_colegio_pais", value);
+				this.OnPropertyChanged("ua_colegio_pais");
+			}
+		}
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ua_colegio_tipo_colegio")]
+		public Microsoft.Xrm.Sdk.OptionSetValue ua_colegio_tipo_colegio
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.OptionSetValue>("ua_colegio_tipo_colegio");
+			}
+			set
+			{
+				this.OnPropertyChanging("ua_colegio_tipo_colegio");
+				this.SetAttributeValue("ua_colegio_tipo_colegio", value);
+				this.OnPropertyChanged("ua_colegio_tipo_colegio");
+			}
+		}
+		
+		/// <summary>
+		/// Identificador único de instancias de entidad
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ua_colegiosid")]
+		public System.Nullable<System.Guid> ua_colegiosId
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<System.Guid>>("ua_colegiosid");
+			}
+			set
+			{
+				this.OnPropertyChanging("ua_colegiosId");
+				this.SetAttributeValue("ua_colegiosid", value);
+				if (value.HasValue)
+				{
+					base.Id = value.Value;
+				}
+				else
+				{
+					base.Id = System.Guid.Empty;
+				}
+				this.OnPropertyChanged("ua_colegiosId");
+			}
+		}
+		
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ua_colegiosid")]
+		public override System.Guid Id
+		{
+			get
+			{
+				return base.Id;
+			}
+			set
+			{
+				this.ua_colegiosId = value;
+			}
+		}
+		
+		/// <summary>
+		/// Identificador único de Usuario asociado con Colegios.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ua_colegiosmetaid")]
+		public Microsoft.Xrm.Sdk.EntityReference ua_ColegiosmetaId
+		{
+			get
+			{
+				return this.GetAttributeValue<Microsoft.Xrm.Sdk.EntityReference>("ua_colegiosmetaid");
+			}
+			set
+			{
+				this.OnPropertyChanging("ua_ColegiosmetaId");
+				this.SetAttributeValue("ua_colegiosmetaid", value);
+				this.OnPropertyChanged("ua_ColegiosmetaId");
+			}
+		}
+		
+		/// <summary>
+		/// El nombre de la entidad personalizada.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("ua_desc_colegios")]
+		public string ua_desc_colegios
+		{
+			get
+			{
+				return this.GetAttributeValue<string>("ua_desc_colegios");
+			}
+			set
+			{
+				this.OnPropertyChanging("ua_desc_colegios");
+				this.SetAttributeValue("ua_desc_colegios", value);
+				this.OnPropertyChanged("ua_desc_colegios");
+			}
+		}
+		
+		/// <summary>
+		/// Código de la zona horaria que estaba en uso cuando se creó el registro.
+		/// </summary>
+		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("utcconversiontimezonecode")]
+		public System.Nullable<int> UTCConversionTimeZoneCode
+		{
+			get
+			{
+				return this.GetAttributeValue<System.Nullable<int>>("utcconversiontimezonecode");
+			}
+			set
+			{
+				this.OnPropertyChanging("UTCConversionTimeZoneCode");
+				this.SetAttributeValue("utcconversiontimezonecode", value);
+				this.OnPropertyChanged("UTCConversionTimeZoneCode");
+			}
+		}
+		
+		/// <summary>
+		/// Número de versión
 		/// </summary>
 		[Microsoft.Xrm.Sdk.AttributeLogicalNameAttribute("versionnumber")]
 		public System.Nullable<long> VersionNumber
@@ -24475,6 +27245,28 @@ namespace XRM
 			get
 			{
 				return this.CreateQuery<XRM.OpportunityClose>();
+			}
+		}
+		
+		/// <summary>
+		/// Gets a binding to the set of all <see cref="XRM.SystemUser"/> entities.
+		/// </summary>
+		public System.Linq.IQueryable<XRM.SystemUser> SystemUserSet
+		{
+			get
+			{
+				return this.CreateQuery<XRM.SystemUser>();
+			}
+		}
+		
+		/// <summary>
+		/// Gets a binding to the set of all <see cref="XRM.ua_colegios"/> entities.
+		/// </summary>
+		public System.Linq.IQueryable<XRM.ua_colegios> ua_colegiosSet
+		{
+			get
+			{
+				return this.CreateQuery<XRM.ua_colegios>();
 			}
 		}
 		

@@ -52,7 +52,21 @@ namespace Anahuac.CRM.EnviaOportunidadABanner.Cross
         [Required(ErrorMessage = "El atributo {0} es requerido.")]
         public string Programa { get; set; }
 
+        [Required(ErrorMessage = "El atributo {0} es requerido.")]
+        public string Correo_Reclutador { get; set; }
+
+        [Required(ErrorMessage = "El atributo {0} es requerido.")]
+        public string Nombre_Reclutador { get; set; }
+
+        //[Required(ErrorMessage = "El atributo {0} es requerido.")]
         public string Escuela { get; set; }
+
+        [Required(ErrorMessage = "El atributo {0} es requerido.")]
+        public string Fecha_Creacion { get; set; }
+
+        
+        public string Origen { get; set; }
+
     }
 
     public class Correo
