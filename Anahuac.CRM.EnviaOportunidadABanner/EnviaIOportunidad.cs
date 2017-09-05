@@ -316,12 +316,20 @@ namespace Anahuac.CRM.EnviaOportunidadABanner
                             if (FechaCreacion != null)
                             {
                                 _cnx.trace.Trace(" Fecha de creacion");
-                                DateTime fecha = (DateTime)FechaCreacion;
-                                var varCultureInfo = new CultureInfo("es-MX");
+
+                                var f = FechaCreacion.Value.Date;
+                                _cnx.trace.Trace(" Fecha  obtenida "+f);
+                                CrearCuentBaner.Fecha_Creacion = FechaCreacion.Value.ToUniversalTime();
+                                oportunidad.Fecha_Creacion = FechaCreacion.Value.ToUniversalTime(); 
+
+                               
+
+                                //DateTime fecha = (DateTime)FechaCreacion;
+                                //var varCultureInfo = new CultureInfo("es-MX");
                                 // var varFechaConversion = fecha.ToString(varCultureInfo);
                                 _cnx.trace.Trace(" convertiendo a cultureinfo la fecha");
-                                CrearCuentBaner.Fecha_Creacion = fecha.ToString(varCultureInfo);
-                                oportunidad.Fecha_Creacion = CrearCuentBaner.Fecha_Creacion;
+                                //CrearCuentBaner.Fecha_Creacion = fecha.ToString(varCultureInfo);
+                                //oportunidad.Fecha_Creacion = CrearCuentBaner.Fecha_Creacion;
 
                             }
 

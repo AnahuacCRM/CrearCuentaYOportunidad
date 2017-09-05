@@ -45,9 +45,11 @@ namespace Anahuac.CRM.EnviaOportunidadABanner.Cross
         public string Escuela { get; set; }
 
         [Required(ErrorMessage = "El atributo {0} es requerido.")]
-        public string Fecha_Creacion { get; set; }
+        public DateTime Fecha_Creacion { get; set; }
         
         public string Origen { get; set; }
+
+        
 
 
 
