@@ -49,6 +49,10 @@ namespace Anahuac.CRM.EnviaOportunidadABanner.Cross
         
         public string Origen { get; set; }
 
+        //Ticket 4543
+        public string Campus { get; set; }
+        public string Nivel { get; set; }
+
         
 
 

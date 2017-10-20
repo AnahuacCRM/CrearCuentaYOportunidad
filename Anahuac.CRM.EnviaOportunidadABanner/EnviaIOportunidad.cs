@@ -3,19 +3,9 @@ using Anahuac.CRM.EnviaOportunidadABanner.Cross;
 using Anahuac.CRM.EnviaOportunidadABanner.Cross.Extensiones;
 using Anahuac.CRM.EnviaOportunidadABanner.DataLayer;
 using Microsoft.Xrm.Sdk;
-using Newtonsoft.Json;
-using Rhino.RetrieveBearerToken;
-using Rhino.RetrieveBearerToken.Entity;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
 using XRM;
 using System.ServiceModel;
-using System.Globalization;
 
 namespace Anahuac.CRM.EnviaOportunidadABanner
 {
@@ -175,16 +165,16 @@ namespace Anahuac.CRM.EnviaOportunidadABanner
                 {
                     //5b82ce2a-4971-4835-9577-4a2dcbe59986  fase de oportunidad
                     //bfc9108c-8389-406b-9166-2c3298a2e41f  fase de solicitante
-                    _cnx.trace.Trace("Validando que no benda de banner y este en al fase correcta ");
+                    _cnx.trace.Trace("Validando que no venga de Banner y esté en al fase correcta ");
                     // if ((currentrecord.StageId.ToString() == "5b82ce2a-4971-4835-9577-4a2dcbe59986") && (((OptionSetValue)Origen).Value != 3))
                     if ((((OptionSetValue)Origen).Value != 3))
                     {
-                        _cnx.trace.Trace("No biene de Banner y se ejecuto ");
+                        _cnx.trace.Trace("No viene de Banner y se ejecutó.");
                         _cnx.trace.Trace("Oportunidad from DB: " + dbRecord.Id);
 
                         var idbaner = dbRecord.ua_idbanner != null ? dbRecord.ua_idbanner : currentrecord.ua_idbanner;
                         var idbaner2 = currentrecord.ua_idbanner != null ? currentrecord.ua_idbanner : currentrecord.ua_idbanner;
-                        _cnx.trace.Trace("obteniendo id prospecto");
+                        _cnx.trace.Trace("Obteniendo id prospecto");
 
                         //var prospecto = currentrecord.OriginatingLeadId != null ? currentrecord.OriginatingLeadId : currentrecord.OriginatingLeadId;
                         //if (prospecto != null)
@@ -196,7 +186,7 @@ namespace Anahuac.CRM.EnviaOportunidadABanner
 
 
                         _cnx.trace.Trace("Validando IdBanner de Oportunidad");
-                        _cnx.trace.Trace(" instanciando VariablesRepository");
+                        _cnx.trace.Trace("instanciando VariablesRepository");
 
                         //if (string.IsNullOrWhiteSpace(idbaner))
                         //{
@@ -224,11 +214,57 @@ namespace Anahuac.CRM.EnviaOportunidadABanner
                             //var Escuela = dbRecord.ua_colegio_procedencia != null ? dbRecord.ua_colegio_procedencia : currentrecord.ua_colegio_procedencia;
 
 
-                            _cnx.trace.Trace("buscame el perdido de esta oportunidad" + currentrecord.OpportunityId.Value.ToString());
+                            //Ticket 4543
+                            var vsNivel = "";
+                            var vsCampus = "";
+                            try
+                            {
+                                _cnx.trace.Trace("Recuperando los datos Nivel y Campus del Contexto...");
+                                _cnx.trace.Trace("Obteniendo el valor Campus...");
+                                vsCampus = dbRecord.ua_codigo_campus.Name != null ? dbRecord.ua_codigo_campus.Name : null;
+                                vsNivel = "";
+                                _cnx.trace.Trace("Valor de ua_desc_nivel.Name: " + dbRecord.ua_desc_nivel.Name);
+                                if (!string.IsNullOrWhiteSpace(dbRecord.ua_desc_nivel.Name))
+                                {
+                                    _cnx.trace.Trace("Obteniendo el valor Nivel...");
+                                    vsNivel = u.obtenerNivel(dbRecord.ua_desc_nivel.Id);
+                                }
+                            }
+                            catch
+                            {
+                                _cnx.trace.Trace("Entré al Catch de los datos Nivel-Campus, intentando recuperarlos mediante consulta...");
+                                var guidCampus = new Guid();
+                                var guidNivel = new Guid();
+                                try
+                                {
+                                    guidCampus = u.getObtieneDatosOportunidad(dbRecord.Id, "ua_codigo_campus");
+                                    guidNivel = u.getObtieneDatosOportunidad(dbRecord.Id, "ua_desc_nivel");
+                                }
+                                catch { }
+                                _cnx.trace.Trace("Guids consultados...");
+                                if (guidCampus != Guid.Empty)
+                                {
+                                    _cnx.trace.Trace("Obteniendo el valor Campus...");
+                                    vsCampus = u.ObtenerCodigo(guidCampus, "businessunit", "businessunitid", "name");
+                                    _cnx.trace.Trace("Valor Campus obtenido...");
+                                }
+                                if (guidNivel != Guid.Empty)
+                                {
+                                    _cnx.trace.Trace("Obteniendo el valor Nivel...");
+                                    vsNivel = "LC";
+                                    //try { vsNivel = u.ObtenerCodigo(guidNivel, "ua_niveles", "ua_nivelesid", "ua_codigo_nivel"); }
+                                    //catch { vsNivel = "LC"; }
+                                    _cnx.trace.Trace("Valor Nivel obtenido...");
+                                }
+                                if (string.IsNullOrWhiteSpace(vsNivel)) vsNivel = "LC";
+                                _cnx.trace.Trace("Datos Recuperados, Campus: " + vsCampus + ", Nivel: " + vsNivel);
+                            }
 
-                            // string PeriodoBusuqeda = u.GetPerdiodoOpo(currentrecord.OpportunityId.Value.ToString());
+                            //_cnx.trace.Trace("buscame el perdido de esta oportunidad" + currentrecord.OpportunityId.Value.ToString());
 
-                            _cnx.trace.Trace("Datos Encontrados:");
+                            //// string PeriodoBusuqeda = u.GetPerdiodoOpo(currentrecord.OpportunityId.Value.ToString());
+
+                            //_cnx.trace.Trace("Datos Encontrados:");
                             // _cnx.trace.Trace(PeriodoBusuqeda);
 
                             if (periodo == null)
@@ -318,11 +354,11 @@ namespace Anahuac.CRM.EnviaOportunidadABanner
                                 _cnx.trace.Trace(" Fecha de creacion");
 
                                 var f = FechaCreacion.Value.Date;
-                                _cnx.trace.Trace(" Fecha  obtenida "+f);
+                                _cnx.trace.Trace(" Fecha  obtenida " + f);
                                 CrearCuentBaner.Fecha_Creacion = FechaCreacion.Value.ToUniversalTime();
-                                oportunidad.Fecha_Creacion = FechaCreacion.Value.ToUniversalTime(); 
+                                oportunidad.Fecha_Creacion = FechaCreacion.Value.ToUniversalTime();
 
-                               
+
 
                                 //DateTime fecha = (DateTime)FechaCreacion;
                                 //var varCultureInfo = new CultureInfo("es-MX");
@@ -359,7 +395,7 @@ namespace Anahuac.CRM.EnviaOportunidadABanner
 
                             //CreateCuenta
                             _cnx.trace.Trace("Obteniendo vpdi de variables repository");
-                            CrearCuentBaner.Campus = vpdi;
+                            //CrearCuentBaner.Campus = vpdi;
                             _cnx.trace.Trace("Obteniendo vpdi de variables repository");
                             oportunidad.VPD = vpdi;
                             //CrearCuenta
@@ -387,6 +423,8 @@ namespace Anahuac.CRM.EnviaOportunidadABanner
                             if (!string.IsNullOrWhiteSpace(idbaner))
                             {
                                 oportunidad.Id_Cuenta = idcuent;
+                                oportunidad.Campus = vsCampus;
+                                oportunidad.Nivel = vsNivel;
 
                                 try
                                 {
@@ -412,6 +450,10 @@ namespace Anahuac.CRM.EnviaOportunidadABanner
                                 _cnx.trace.Trace("*****ENTRAMOS  A EJECUTAR EL 1*****");
                                 _cnx.trace.Trace("Obteniendo periodo de Sexo y FechaNacimiento de  repository");
                                 DateTime FechaNA = default(DateTime);
+
+                                CrearCuentBaner.Nivel = vsNivel;
+                                CrearCuentBaner.Campus = vsCampus;
+
                                 CrearCuentBaner.id_Cta = idcuent;
 
                                 _cnx.trace.Trace("Ontenemos la fehca de nacimiento de esta cuenta " + CrearCuentBaner.id_Cta);
@@ -509,7 +551,8 @@ namespace Anahuac.CRM.EnviaOportunidadABanner
                                     //_cnx.context.SharedVariables.Add("AbortProcess", string.Format("Error en la informacion a enviar: {0}", ex.Message));
                                     //OpportunitytoUpdate.Attributes["rs_banderaenviooportunidad"] = new OptionSetValue(0);// No Enviado
                                     // _cnx.service.Update(OpportunitytoUpdate);
-                                    return;
+                                    //throw new Exception("", ex);
+                                    //return;
                                 }
 
                             }//Fin else crearCeunta
@@ -540,6 +583,7 @@ namespace Anahuac.CRM.EnviaOportunidadABanner
                 _cnx.trace.Trace("Message: {0}", ex.Detail.Message);
                 _cnx.trace.Trace("Inner Fault: {0}",
                     null == ex.Detail.InnerFault ? "No Inner Fault" : "Has Inner Fault");
+                throw new Exception("Error: ", ex);
             }
             catch (System.TimeoutException ex)
             {
@@ -548,6 +592,7 @@ namespace Anahuac.CRM.EnviaOportunidadABanner
                 _cnx.trace.Trace("Stack Trace: {0}", ex.StackTrace);
                 _cnx.trace.Trace("Inner Fault: {0}",
                     null == ex.InnerException.Message ? "No Inner Fault" : ex.InnerException.Message);
+                throw new Exception("Error: ", ex);
             }
             catch (System.Exception ex)
             {
@@ -571,6 +616,7 @@ namespace Anahuac.CRM.EnviaOportunidadABanner
                             null == fe.Detail.InnerFault ? "No Inner Fault" : "Has Inner Fault");
                     }
                 }
+                throw new Exception("Error: ", ex);
             }
 
         }

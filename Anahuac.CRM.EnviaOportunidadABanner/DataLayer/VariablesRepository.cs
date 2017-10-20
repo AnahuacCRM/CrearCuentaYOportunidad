@@ -209,7 +209,7 @@ namespace Anahuac.CRM.EnviaOportunidadABanner.DataLayer
         {
             bannerlog = null;
             bool res = false;
-            string spros = "";
+            //string spros = "";
             ua_logidbanner bl = new ua_logidbanner();
 
             QueryExpression Query = new QueryExpression(ua_logidbanner.EntityLogicalName)
@@ -431,6 +431,11 @@ namespace Anahuac.CRM.EnviaOportunidadABanner.DataLayer
 
         }
 
+
+        public string obtenerNivel(Guid nivelId)
+        {
+            return ObtenerCodigo(nivelId, "ua_niveles", "ua_nivelesid", "ua_codigo_nivel");
+        }
 
         public string ObtenerPeriodo(Guid periodoId)
         {
@@ -901,7 +906,7 @@ namespace Anahuac.CRM.EnviaOportunidadABanner.DataLayer
         }
 
 
-        private string ObtenerCodigo(Guid idLookup, string EntityLogicalName, string campofiltro, string campoRecuperar)
+        public string ObtenerCodigo(Guid idLookup, string EntityLogicalName, string campofiltro, string campoRecuperar)
         {
             string resultado = string.Empty;
             QueryExpression query = new QueryExpression(EntityLogicalName)
@@ -923,6 +928,34 @@ namespace Anahuac.CRM.EnviaOportunidadABanner.DataLayer
                 resultado = ec.Entities[0].GetAttributeValue<string>(campoRecuperar);
 
             return resultado;
+        }
+
+        public Guid getObtieneDatosOportunidad(Guid idOportunidad, string atributo)
+        {
+            var retorno = new Guid();
+            Opportunity op = new Opportunity();
+            
+            List<Guid> lstRes = new List<Guid>();
+            QueryExpression Query = new QueryExpression(Opportunity.EntityLogicalName)
+            {
+                NoLock = true,
+                ColumnSet = new ColumnSet(true),
+                Criteria = {
+                    Conditions = {
+                        new ConditionExpression("opportunityid", ConditionOperator.Equal, idOportunidad)
+                    }
+                }
+            };
+
+            var ec = _cnx.service.RetrieveMultiple(Query);
+            if (ec.Entities.Any())
+            {
+                var entityRow = ec.Entities.FirstOrDefault();
+                _cnx.trace.Trace("Leyendo los datos de la Consulta de la Oportunidad para el atributo " + atributo);
+                retorno = ((EntityReference)entityRow.Attributes[atributo]).Id;
+                _cnx.trace.Trace("Valor Recuperado del atributo " + atributo + ": " + retorno.ToString());
+            }
+            return retorno;
         }
     }
 }

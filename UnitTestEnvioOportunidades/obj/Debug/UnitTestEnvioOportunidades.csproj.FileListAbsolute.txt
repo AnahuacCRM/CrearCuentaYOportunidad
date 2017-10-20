@@ -120,3 +120,27 @@ C:\AnahuacGitHub\CrearCuentaYOportunidad\UnitTestEnvioOportunidades\bin\Debug\Sy
 C:\AnahuacGitHub\CrearCuentaYOportunidad\UnitTestEnvioOportunidades\bin\Debug\es\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
 C:\AnahuacGitHub\CrearCuentaYOportunidad\UnitTestEnvioOportunidades\obj\Debug\UnitTestEnvioOportunidades.dll
 C:\AnahuacGitHub\CrearCuentaYOportunidad\UnitTestEnvioOportunidades\obj\Debug\UnitTestEnvioOportunidades.pdb
+E:\Desarrollos_CRM\Entregables BBP\Plugins\CrearCuentaYOportunidad\UnitTestEnvioOportunidades\bin\Debug\UnitTestEnvioOportunidades.dll.config
+E:\Desarrollos_CRM\Entregables BBP\Plugins\CrearCuentaYOportunidad\UnitTestEnvioOportunidades\bin\Debug\UnitTestEnvioOportunidades.dll
+E:\Desarrollos_CRM\Entregables BBP\Plugins\CrearCuentaYOportunidad\UnitTestEnvioOportunidades\bin\Debug\UnitTestEnvioOportunidades.pdb
+E:\Desarrollos_CRM\Entregables BBP\Plugins\CrearCuentaYOportunidad\UnitTestEnvioOportunidades\bin\Debug\Anahuac.CRM.EnviaOportunidadABanner.dll
+E:\Desarrollos_CRM\Entregables BBP\Plugins\CrearCuentaYOportunidad\UnitTestEnvioOportunidades\bin\Debug\Castle.Core.dll
+E:\Desarrollos_CRM\Entregables BBP\Plugins\CrearCuentaYOportunidad\UnitTestEnvioOportunidades\bin\Debug\Microsoft.Crm.Sdk.Proxy.dll
+E:\Desarrollos_CRM\Entregables BBP\Plugins\CrearCuentaYOportunidad\UnitTestEnvioOportunidades\bin\Debug\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
+E:\Desarrollos_CRM\Entregables BBP\Plugins\CrearCuentaYOportunidad\UnitTestEnvioOportunidades\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+E:\Desarrollos_CRM\Entregables BBP\Plugins\CrearCuentaYOportunidad\UnitTestEnvioOportunidades\bin\Debug\Microsoft.Xrm.Sdk.Deployment.dll
+E:\Desarrollos_CRM\Entregables BBP\Plugins\CrearCuentaYOportunidad\UnitTestEnvioOportunidades\bin\Debug\Microsoft.Xrm.Sdk.dll
+E:\Desarrollos_CRM\Entregables BBP\Plugins\CrearCuentaYOportunidad\UnitTestEnvioOportunidades\bin\Debug\Microsoft.Xrm.Tooling.Connector.dll
+E:\Desarrollos_CRM\Entregables BBP\Plugins\CrearCuentaYOportunidad\UnitTestEnvioOportunidades\bin\Debug\Moq.dll
+E:\Desarrollos_CRM\Entregables BBP\Plugins\CrearCuentaYOportunidad\UnitTestEnvioOportunidades\bin\Debug\Newtonsoft.Json.dll
+E:\Desarrollos_CRM\Entregables BBP\Plugins\CrearCuentaYOportunidad\UnitTestEnvioOportunidades\bin\Debug\Rhino.RetrieveBearerToken.dll
+E:\Desarrollos_CRM\Entregables BBP\Plugins\CrearCuentaYOportunidad\UnitTestEnvioOportunidades\bin\Debug\System.Net.Http.Formatting.dll
+E:\Desarrollos_CRM\Entregables BBP\Plugins\CrearCuentaYOportunidad\UnitTestEnvioOportunidades\bin\Debug\Anahuac.CRM.EnviaOportunidadABanner.pdb
+E:\Desarrollos_CRM\Entregables BBP\Plugins\CrearCuentaYOportunidad\UnitTestEnvioOportunidades\bin\Debug\Castle.Core.xml
+E:\Desarrollos_CRM\Entregables BBP\Plugins\CrearCuentaYOportunidad\UnitTestEnvioOportunidades\bin\Debug\Moq.xml
+E:\Desarrollos_CRM\Entregables BBP\Plugins\CrearCuentaYOportunidad\UnitTestEnvioOportunidades\bin\Debug\Newtonsoft.Json.xml
+E:\Desarrollos_CRM\Entregables BBP\Plugins\CrearCuentaYOportunidad\UnitTestEnvioOportunidades\bin\Debug\System.Net.Http.Formatting.xml
+E:\Desarrollos_CRM\Entregables BBP\Plugins\CrearCuentaYOportunidad\UnitTestEnvioOportunidades\bin\Debug\es\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+E:\Desarrollos_CRM\Entregables BBP\Plugins\CrearCuentaYOportunidad\UnitTestEnvioOportunidades\obj\Debug\UnitTestEnvioOportunidades.csprojResolveAssemblyReference.cache
+E:\Desarrollos_CRM\Entregables BBP\Plugins\CrearCuentaYOportunidad\UnitTestEnvioOportunidades\obj\Debug\UnitTestEnvioOportunidades.dll
+E:\Desarrollos_CRM\Entregables BBP\Plugins\CrearCuentaYOportunidad\UnitTestEnvioOportunidades\obj\Debug\UnitTestEnvioOportunidades.pdb
