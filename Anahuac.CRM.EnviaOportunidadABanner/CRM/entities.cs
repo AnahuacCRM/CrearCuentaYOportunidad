@@ -9610,7 +9610,8 @@ namespace XRM
 			public const string ua_colegio_asesor = "ua_colegio_asesor";
 			public const string ua_colegio_procedencia = "ua_colegio_procedencia";
 			public const string ua_colegioGUIDStr = "ua_colegioguidstr";
-			public const string ua_correo_electronico_flujo = "ua_correo_electronico_flujo";
+            public const string ua_colonia_1 = "ua_colonia_1";
+            public const string ua_correo_electronico_flujo = "ua_correo_electronico_flujo";
 			public const string ua_delegacion_municipio_asesor = "ua_delegacion_municipio_asesor";
 			public const string ua_Edadv2 = "ua_edadv2";
 			public const string ua_estado_asesor = "ua_estado_asesor";

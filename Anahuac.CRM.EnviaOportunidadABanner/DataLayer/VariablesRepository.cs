@@ -251,7 +251,7 @@ namespace Anahuac.CRM.EnviaOportunidadABanner.DataLayer
             return res;
         }
 
-        public void RegistrarLogBanner(string p,string O,string C,string B)
+        public void RegistrarLogBanner(string p, string O, string C, string B)
         {
             ua_logidbanner log = new ua_logidbanner();
             log.ua_Prospectoid = p;
@@ -502,7 +502,7 @@ namespace Anahuac.CRM.EnviaOportunidadABanner.DataLayer
             return codigoEscuela;
         }
 
-        public string GetDatosAsesor(Guid pasesor, out string pcorreo )
+        public string GetDatosAsesor(Guid pasesor, out string pcorreo)
         {
 
 
@@ -555,7 +555,7 @@ namespace Anahuac.CRM.EnviaOportunidadABanner.DataLayer
             Guid resultado = default(Guid);
 
             //Cuenta Existe este PrimaryContactId
-           
+
 
             QueryExpression Query = new QueryExpression(Account.EntityLogicalName)
             {
@@ -714,7 +714,7 @@ namespace Anahuac.CRM.EnviaOportunidadABanner.DataLayer
                             datosb.ApellidoPaternoC = Aapellidos[0];
                             withApp = datosb.ApellidoPaternoC.Length;
                         }
-                        _cnx.trace.Trace("----------longitud del primer block-------------"+ withApp);
+                        _cnx.trace.Trace("----------longitud del primer block-------------" + withApp);
 
                         _cnx.trace.Trace("----------longitud de los appellidos-------------" + ap.Length);
                         datosb.Apellido_MaternoC = ap.Substring(withApp, ap.Length - withApp);
@@ -929,12 +929,66 @@ namespace Anahuac.CRM.EnviaOportunidadABanner.DataLayer
 
             return resultado;
         }
+        public string ObtenerCodigoPorTexto(string dato, string EntityLogicalName, string campofiltro, string campoRecuperar)
+        {
+            string resultado = string.Empty;
+            QueryExpression query = new QueryExpression(EntityLogicalName)
+            {
+                NoLock = true,
+                EntityName = EntityLogicalName,
+                ColumnSet = new ColumnSet(campoRecuperar),
+                Criteria =
+                {
+                    Conditions = {
+                         new ConditionExpression(campofiltro, ConditionOperator.Equal, dato),
+                    },
+                },
+            };
+
+            EntityCollection ec = _cnx.service.RetrieveMultiple(query);
+
+            if (ec.Entities.Any())
+                resultado = ec.Entities[0].GetAttributeValue<string>(campoRecuperar);
+
+            return resultado;
+        }
+
+        public Guid ObtenerGuidRelacion(Guid idLookup, string EntityLogicalName, string campofiltro, string campoRecuperar)
+        {
+            Guid resultado = new Guid();
+            _cnx.trace.Trace("Entrando a la relación... Guid: " + idLookup.ToString());
+            //EntityReference er = new EntityReference();
+            QueryExpression query = new QueryExpression(EntityLogicalName)
+            {
+                NoLock = true,
+                EntityName = EntityLogicalName,
+                //ColumnSet = new ColumnSet(campoRecuperar),
+                ColumnSet = new ColumnSet { AllColumns = true },
+                Criteria =
+                {
+                    Conditions = {
+                         new ConditionExpression(campofiltro, ConditionOperator.Equal, idLookup),
+                    },
+                },
+            };
+
+            EntityCollection ec = _cnx.service.RetrieveMultiple(query);
+
+            if (ec.Entities.Any())
+            {
+                var resultadoConsulta = ec.Entities[0].GetAttributeValue<EntityReference>(campoRecuperar);
+                resultado = resultadoConsulta.Id;
+
+            }
+            _cnx.trace.Trace("Resultado Guid: " + resultado.ToString());
+            return resultado;
+        }
 
         public Guid getObtieneDatosOportunidad(Guid idOportunidad, string atributo)
         {
             var retorno = new Guid();
             Opportunity op = new Opportunity();
-            
+
             List<Guid> lstRes = new List<Guid>();
             QueryExpression Query = new QueryExpression(Opportunity.EntityLogicalName)
             {
@@ -956,6 +1010,276 @@ namespace Anahuac.CRM.EnviaOportunidadABanner.DataLayer
                 _cnx.trace.Trace("Valor Recuperado del atributo " + atributo + ": " + retorno.ToString());
             }
             return retorno;
+        }
+
+        public string enviaDatosDomicilioBanner(Guid idOportunidad, string idBanner, string VPDI, string Periodo)
+        {
+            string vsRetorno = "";
+            _cnx.trace.Trace("Entrando a la opción de envío de datos a Banner Direccion");
+            try
+            {
+                DireccionesBanner direccionBanner = new DireccionesBanner();
+                //Obteniendo el idLead.
+                var idProspecto = ObtenerProspectoDeLaOportunidad(idOportunidad);
+                //Obteniendo los datos del prospecto (Lead)
+                if (idProspecto != Guid.Empty)
+                {
+                    ColumnSet col = new ColumnSet(new string[] {
+                    "ua_tipo_de_direccion1",
+                    "address1_line1",
+                    "address1_line2",
+                    "ua_pais_asesor",
+                    "ua_estado_asesor",
+                    "ua_delegacion_municipio_asesor",
+                    "ua_colonia_1",
+                    "address1_postalcode",
+                    "ua_ciudad_extranjera"});
+                    Lead pros = new Lead();
+                    var ec = _cnx.service.Retrieve(Lead.EntityLogicalName, idProspecto, col);
+                    if (ec != null)
+                    {
+                        var prospecto = ec.ToEntity<Lead>();
+                        if (prospecto != null)
+                        {
+                            //var guidPais = new Guid();
+                            direccionBanner.idBanner = idBanner;
+                            direccionBanner.VPDI = VPDI;
+                            direccionBanner.Periodo = Periodo;
+                            if (prospecto.Attributes.ContainsKey("ua_tipo_de_direccion1"))
+                                direccionBanner.TipoDireccion = ObtenerCodigo(((EntityReference)prospecto.Attributes["ua_tipo_de_direccion1"]).Id, "ua_tipo_direccion", "ua_tipo_direccionid", "ua_codigo_tipo_direccion");
+                            if (prospecto.Attributes.ContainsKey("address1_line1"))
+                                direccionBanner.Linea1 = prospecto.Attributes["address1_line1"].ToString();
+                            if (prospecto.Attributes.ContainsKey("address1_line2"))
+                                direccionBanner.Linea2 = prospecto.Attributes["address1_line2"].ToString();
+                            if (prospecto.Attributes.ContainsKey("ua_pais_asesor"))
+                            {
+                               
+                                var guidPais = ObtenerGuidRelacion(((EntityReference)prospecto.Attributes["ua_pais_asesor"]).Id, "ua_pais_asesor", "ua_pais_asesorid", "ua_pais");
+                                direccionBanner.Pais = ObtenerCodigo(guidPais, "ua_pais", "ua_paisid", "ua_codigo_pais");
+                            }
+                            if (prospecto.Attributes.ContainsKey("ua_estado_asesor"))
+                            {
+                                var guidEstado = ObtenerGuidRelacion(((EntityReference)prospecto.Attributes["ua_estado_asesor"]).Id, "ua_estados_asesor", "ua_estados_asesorid", "ua_estados");
+                                direccionBanner.Estado = ObtenerCodigo(guidEstado, "ua_estados", "ua_estadosid", "ua_codigo_estado");
+                            }
+                            if (prospecto.Attributes.ContainsKey("ua_delegacion_municipio_asesor"))
+                            {
+                                var guidMpo= ObtenerGuidRelacion(((EntityReference)prospecto.Attributes["ua_delegacion_municipio_asesor"]).Id, "ua_delegacion_municipio_asesor", "ua_delegacion_municipio_asesorid", "ua_delegacion_municipio");
+                                direccionBanner.Municipio = ObtenerCodigo(guidMpo, "ua_delegacion_municipio", "ua_delegacion_municipioid", "ua_codigo_municipio");
+                            }
+                            //direccionBanner.Municipio = ObtenerCodigo(((EntityReference)prospecto.Attributes["ua_delegacion_municipio_asesor"]).Id, "ua_delegacion_municipio_asesor", "ua_delegacion_municipio_asesorid", "ua_delegacion_municipio_asesor");
+                            if (prospecto.Attributes.ContainsKey("ua_colonia_1"))
+                                direccionBanner.Colonia = ObtenerCodigo(((EntityReference)prospecto.Attributes["ua_colonia_1"]).Id, "ua_colonia", "ua_coloniaid", "ua_colonia");
+                            if (prospecto.Attributes.ContainsKey("address1_postalcode"))
+                                direccionBanner.CodigoPostal = prospecto.Attributes["address1_postalcode"].ToString();
+                            if (prospecto.Attributes.ContainsKey("ua_ciudad_extranjera"))
+                                direccionBanner.CiudadExtranjera = prospecto.Attributes["ua_ciudad_extranjera"].ToString();
+
+                        }
+                        else
+                            vsRetorno = "No se encontró datos de prospecto para la oportunidad generada.";
+                    }
+                    else
+                        vsRetorno = "No se encontró datos de prospecto para la oportunidad generada.";
+                }
+                if (vsRetorno != string.Empty)
+                    return vsRetorno;
+                if (direccionBanner == null)
+                    vsRetorno = "El objeto Dirección Banner está vacío.";
+                else
+                {
+                    _cnx.trace.Trace("****Iniciciando el consumo Envio de Datos Domicilio a Banner.*****");
+                    #region Envio de informacion
+                    #region Seguridad
+                    _cnx.trace.Trace("Obteniendo variables de seguridad");
+                    var uriToken = ObtenerVariableSistema(ua_variablesistema.EntityLogicalName, "UrlToken");
+
+                    var aplicacion = ObtenerVariableSistema(ua_variablesistema.EntityLogicalName, "AplicacionSeguridad");
+                    // var aplicacion = "Banner";
+
+                    var secret = ObtenerVariableSistema(ua_variablesistema.EntityLogicalName, "SecretSeguridad");
+                    // var secret = "ygCz85Z7SBA5HhXCLEjp/Vfb9j1oRzesmBVPNal8u+2ggb0TQO662/xNfyPf2NCRvwA/ppY/OYVn38Eu6w9Sgg==";
+
+                    var usuario = ObtenerVariableSistema(ua_variablesistema.EntityLogicalName, "UsuarioSeguridad");
+                    //var usuario = "Banner";
+                    SecurityToken st = new SecurityToken();
+                    Token token = st.RetrieveBearerToken(uriToken, aplicacion, secret, usuario);
+                    #endregion
+
+                    var url = ObtenerVariableSistema(ua_variablesistema.EntityLogicalName, "URL Domicilio Banner");//URL wsBaner 
+                                                                                                                   // var url = @"https://rua-integ-dev.ec.lcred.net/wsBannerCRMP/api/srvGestionCuentaOportunidad";
+                    _cnx.trace.Trace("URL WS Banner 'EnvioOportunidad' : " + url);
+
+
+                    HttpClient proxy = new HttpClient();
+                    proxy.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token.AccessToken);
+                    var responsePost = proxy.PostAsJsonAsync(url, direccionBanner).Result;
+
+                    string json = JsonConvert.SerializeObject(direccionBanner);
+                    _cnx.trace.Trace("--------------------");
+                    _cnx.trace.Trace("--------------------");
+                    _cnx.trace.Trace("Request Json: {0}", json);
+
+                    _cnx.trace.Trace("responsePost.StatusCode: {0}", responsePost.StatusCode);
+                    if (responsePost.StatusCode != System.Net.HttpStatusCode.OK)
+                    {
+                        var mensaje = responsePost.Content.ReadAsStringAsync().Result;
+                        _cnx.trace.Trace("Ocurrio un error al enviar la informacion a Banner: " + mensaje);
+                        // OpportunitytoUpdate.Attributes["rs_banderaenviooportunidad"] = new OptionSetValue(0);// No Enviado
+                        // _cnx.service.Update(OpportunitytoUpdate);
+                        vsRetorno = mensaje;
+                    }
+
+                    var resultPost = responsePost.Content.ReadAsStringAsync().Result;
+                    _cnx.trace.Trace("Respuesta Json: {0}", resultPost);
+                    #endregion
+                }
+
+            }
+            catch (Exception ex)
+            {
+                vsRetorno = "Ha ocurrido un error en el proceso de envío de Datos Domicilio a Banner: " + ex.Message;
+            }
+
+            return vsRetorno;
+
+        }
+        public string enviaDatosTelefonosBanner (Guid idOportunidad, string idBanner, string VPDI, string Periodo)
+        {
+            string vsRetorno = "";
+            _cnx.trace.Trace("Entrando a la opción de envío de datos telefónicos a Banner.");
+            try
+            {
+                TelefonosBanner telefonosBanner = new TelefonosBanner();
+                //Obteniendo el idLead.
+                var idProspecto = ObtenerProspectoDeLaOportunidad(idOportunidad);
+                //Obteniendo los datos del prospecto (Lead)
+                if (idProspecto != Guid.Empty)
+                {
+                    ColumnSet col = new ColumnSet(new string[] {
+                    "telephone1",
+                    "mobilephone"});
+                    Lead pros = new Lead();
+                    var ec = _cnx.service.Retrieve(Lead.EntityLogicalName, idProspecto, col);
+                    if (ec != null)
+                    {
+                        var prospecto = ec.ToEntity<Lead>();
+                        if (prospecto != null)
+                        {
+                            //var guidPais = new Guid();
+                            telefonosBanner.idBanner = idBanner;
+                            telefonosBanner.VPDI = VPDI;
+                            telefonosBanner.Periodo = Periodo;
+                            if (prospecto.Attributes.ContainsKey("telephone1"))
+                                telefonosBanner.TelefonoPrincipal = prospecto.Attributes["telephone1"].ToString();
+                            if (prospecto.Attributes.ContainsKey("mobilephone"))
+                                telefonosBanner.TelefonoMovil = prospecto.Attributes["mobilephone"].ToString();
+
+                        }
+                        else
+                            vsRetorno = "No se encontró datos de prospecto para la oportunidad generada.";
+                    }
+                    else
+                        vsRetorno = "No se encontró datos de prospecto para la oportunidad generada.";
+                }
+                if (vsRetorno != string.Empty)
+                    return vsRetorno;
+                if (telefonosBanner == null)
+                    vsRetorno = "El objeto Teléfono Banner está vacío.";
+                else
+                {
+                    //int a = 0;
+                    //int b = 1 / a;
+                    _cnx.trace.Trace("****Iniciciando el consumo Envio de Datos Teléfono a Banner.*****");
+                    #region Envio de informacion
+                    #region Seguridad
+                    _cnx.trace.Trace("Obteniendo variables de seguridad");
+                    var uriToken = ObtenerVariableSistema(ua_variablesistema.EntityLogicalName, "UrlToken");
+
+                    var aplicacion = ObtenerVariableSistema(ua_variablesistema.EntityLogicalName, "AplicacionSeguridad");
+                    // var aplicacion = "Banner";
+
+                    var secret = ObtenerVariableSistema(ua_variablesistema.EntityLogicalName, "SecretSeguridad");
+                    // var secret = "ygCz85Z7SBA5HhXCLEjp/Vfb9j1oRzesmBVPNal8u+2ggb0TQO662/xNfyPf2NCRvwA/ppY/OYVn38Eu6w9Sgg==";
+
+                    var usuario = ObtenerVariableSistema(ua_variablesistema.EntityLogicalName, "UsuarioSeguridad");
+                    //var usuario = "Banner";
+                    SecurityToken st = new SecurityToken();
+                    Token token = st.RetrieveBearerToken(uriToken, aplicacion, secret, usuario);
+                    #endregion
+
+                    var url = ObtenerVariableSistema(ua_variablesistema.EntityLogicalName, "URL Telefonos Banner");//URL wsBaner 
+                                                                                                                   // var url = @"https://rua-integ-dev.ec.lcred.net/wsBannerCRMP/api/srvGestionCuentaOportunidad";
+                    _cnx.trace.Trace("URL WS Banner 'EnvioOportunidad' : " + url);
+
+
+                    HttpClient proxy = new HttpClient();
+                    proxy.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token.AccessToken);
+                    var responsePost = proxy.PostAsJsonAsync(url, telefonosBanner).Result;
+
+                    string json = JsonConvert.SerializeObject(telefonosBanner);
+                    _cnx.trace.Trace("--------------------");
+                    _cnx.trace.Trace("--------------------");
+                    _cnx.trace.Trace("Request Json: {0}", json);
+
+                    _cnx.trace.Trace("responsePost.StatusCode: {0}", responsePost.StatusCode);
+                    if (responsePost.StatusCode != System.Net.HttpStatusCode.OK)
+                    {
+                        var mensaje = responsePost.Content.ReadAsStringAsync().Result;
+                        _cnx.trace.Trace("Ocurrio un error al enviar la informacion a Banner: " + mensaje);
+                        // OpportunitytoUpdate.Attributes["rs_banderaenviooportunidad"] = new OptionSetValue(0);// No Enviado
+                        // _cnx.service.Update(OpportunitytoUpdate);
+                        vsRetorno = mensaje;
+                    }
+
+                    var resultPost = responsePost.Content.ReadAsStringAsync().Result;
+                    _cnx.trace.Trace("Respuesta Json: {0}", resultPost);
+                    #endregion
+                }
+
+            }
+            catch (Exception ex)
+            {
+                vsRetorno = "Ha ocurrido un error en el proceso de envío de Datos Telefono a Banner: " + ex.Message;
+                throw new Exception(vsRetorno);
+            }
+
+            return vsRetorno;
+        }
+
+
+        public void enviaBitacoraBanner(string Mensaje)
+        {
+            BitacoraCRM bitacora = new BitacoraCRM();
+            bitacora.Mensaje = Mensaje;
+
+            _cnx.trace.Trace("Trabajando en Bitácora Banner...");          
+            var uriToken = ObtenerVariableSistema(ua_variablesistema.EntityLogicalName, "UrlToken");
+            var aplicacion = ObtenerVariableSistema(ua_variablesistema.EntityLogicalName, "AplicacionSeguridad");
+            var secret = ObtenerVariableSistema(ua_variablesistema.EntityLogicalName, "SecretSeguridad");
+            var usuario = ObtenerVariableSistema(ua_variablesistema.EntityLogicalName, "UsuarioSeguridad");
+            SecurityToken st = new SecurityToken();
+            Token token = st.RetrieveBearerToken(uriToken, aplicacion, secret, usuario);  
+            var url = ObtenerVariableSistema(ua_variablesistema.EntityLogicalName, "URL Bitacora");
+            _cnx.trace.Trace("URL de bitácora Banner: " + url);
+            HttpClient proxy = new HttpClient();
+            _cnx.trace.Trace("Obteniendo token...");
+            proxy.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token.AccessToken);
+            string json = JsonConvert.SerializeObject(bitacora);
+            _cnx.trace.Trace("-----------");
+            _cnx.trace.Trace("-----------");
+            //_cnx.trace.Trace("Request Json enviado: {0}", json);
+            _cnx.trace.Trace("Ejecutando...");
+            var responsePost = proxy.PostAsJsonAsync(url, bitacora).Result;
+            _cnx.trace.Trace("responsePost.StatusCode: {0}", responsePost.StatusCode);
+            if (responsePost.StatusCode != System.Net.HttpStatusCode.OK)
+            {
+                var mensaje = responsePost.Content.ReadAsStringAsync().Result;
+                _cnx.trace.Trace("Ocurrio un error al enviar la bitácora a Banner: " + mensaje);
+                //throw new InvalidPluginExecutionException("Ocurrio un error al enviar la bitácora a Banner: " + mensaje);
+            }
+            var resultado = responsePost.Content.ReadAsStringAsync().Result;
+            _cnx.trace.Trace("Respuesta Json: {0}", resultado);
         }
     }
 }
